@@ -1,0 +1,4 @@
+[built-in options]
+b_staticpic = false
+cpp_eh      = 'none'
+cpp_rtti    = false
