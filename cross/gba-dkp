@@ -1,0 +1,12 @@
+[constants]
+march           = '-mthumb'
+specs           = '-specs=gba.specs'
+
+[built-in options]
+b_staticpic     = false
+c_args          = c_args + [march]
+c_link_args     = [specs, march]
+cpp_args        = c_args
+cpp_eh          = 'none'
+cpp_link_args   = c_link_args
+cpp_rtti        = false

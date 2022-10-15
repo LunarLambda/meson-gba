@@ -1,0 +1,7 @@
+[wrap-git]
+url = https://github.com/LunarLambda/libseven
+revision = main
+depth = 1
+
+[provides]
+dependency_names = libseven

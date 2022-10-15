@@ -1,0 +1,16 @@
+[constants]
+c_args = ['-mcpu=arm7tdmi', '-mabi=aapcs']
+cpp_args = c_args
+
+[binaries]
+c = 'arm-none-eabi-gcc'
+cpp = 'arm-none-eabi-g++'
+ar = 'arm-none-eabi-gcc-ar'
+strip = 'arm-none-eabi-strip'
+objcopy = 'arm-none-eabi-objcopy'
+
+[host_machine]
+system = 'none'
+cpu_family = 'arm'
+cpu = 'arm7tdmi'
+endian = 'little'

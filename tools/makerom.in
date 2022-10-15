@@ -1,0 +1,4 @@
+#!/bin/sh
+
+@OBJCOPY@ -O binary "$1" "$2"
+@GBAFIX@ "$2"

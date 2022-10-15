@@ -1,0 +1,8 @@
+[wrap-git]
+url = https://github.com/devkitpro/general-tools
+revision = master
+depth = 1
+patch_directory = general-tools
+
+[provide]
+program_names = bin2s, bmp2bin, padbin, raw2c

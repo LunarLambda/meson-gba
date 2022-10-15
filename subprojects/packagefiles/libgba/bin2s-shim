@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ "$#" -lt "2" ]; then
+    echo "usage: $0 <bin2s executable> <output file> [bin2s flags...]"
+    exit 1;
+fi
+
+exe="$1"
+out="$2"
+shift 2
+
+"$exe" "$@" > "$out"
