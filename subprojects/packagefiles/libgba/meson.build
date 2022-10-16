@@ -1,23 +1,13 @@
 project('libgba', 'c',
   version: '0.5.2',
   license: 'LGPL-2.0-or-later',
-)
-
-bin2s_exe = find_program('bin2s', required: true)
-
-font = custom_target(
-  'amiga-font',
-  command: ['./bin2s-shim', bin2s_exe.full_path(), '@OUTPUT1@', '-a', '2', '-H', '@OUTPUT0@', '@INPUT@'],
-  input: ['data/amiga.fnt'],
-  output: ['amiga_fnt.h', 'amiga_fnt.s'],
-)
+  default_options: ['c_std=none'])
 
 sources = [
   'src/AffineSet.c',
   'src/ArcTan.s',
   'src/BoyScout/BoyScout.c',
   'src/Compression.c',
-  'src/console.c',
   'src/CpuSet.c',
   'src/disc_io/disc.c',
   'src/disc_io/dldi.c',
@@ -48,13 +38,40 @@ sources = [
   'src/Sqrt.s',
   'src/xcomms.c',
   'src/xcomms_print.c',
-  font,
 ]
 
 includes = ['include']
 
+compile_args = []
+
+cc = meson.get_compiler('c')
+
+# Check if we have the relevant newlib patches
+has_devoptab_t = cc.has_type('devoptab_t', prefix: '#include <sys/iosupport.h>')
+
+console = get_option('dkp-console').require(has_devoptab_t)
+
+if console.allowed()
+  bin2s = find_program('bin2s', required: console)
+
+  if bin2s.found()
+    font = custom_target(
+      'amiga-font',
+      command: ['./bin2s-shim', bin2s.full_path(), '@OUTPUT1@', '-a', '2', '-H', '@OUTPUT0@', '@INPUT@'],
+      input: ['data/amiga.fnt'],
+      output: ['amiga_fnt.h', 'amiga_fnt.s'])
+
+    sources += ['src/console.c', font]
+
+    compile_args += ['-DLIBGBA_HAS_CONSOLE']
+  endif
+endif
+
 libgba = static_library('gba', sources, include_directories: includes)
 
-libgba_dep = declare_dependency(include_directories: includes, link_with: libgba)
+libgba_dep = declare_dependency(
+  compile_args: compile_args,
+  include_directories: includes,
+  link_with: libgba)
 
 meson.override_dependency('libgba', libgba_dep)

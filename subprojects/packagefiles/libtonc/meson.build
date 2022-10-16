@@ -67,11 +67,25 @@ sources_c = [
   'src/tte/tte_init_chr4r.c',
   'src/tte/tte_init_obj.c',
   'src/tte/tte_init_se.c',
-  'src/tte/tte_iohook.c',
   'src/tte/tte_main.c',
 ]
 
 includes = ['include']
+
+compile_args = []
+
+cc = meson.get_compiler('c')
+
+# Check if we have the relevant newlib patches
+has_devoptab_t = cc.has_type('devoptab_t', prefix: '#include <sys/iosupport.h>')
+
+console = get_option('dkp-console').require(has_devoptab_t)
+
+if console.allowed()
+  sources_c += ['src/tte/tte_iohook.c']
+
+  compile_args += ['-DLIBTONC_HAS_CONSOLE']
+endif
 
 # TONC's .s files are expected to be compiled with -x assembler-with-cpp
 #
@@ -90,6 +104,9 @@ libtonc = static_library(
   link_with: libtonc_asm,
   c_args: ['-Wall', '-fno-strict-aliasing'],)
 
-libtonc_dep = declare_dependency(include_directories: includes, link_with: libtonc)
+libtonc_dep = declare_dependency(
+  compile_args: compile_args,
+  include_directories: includes,
+  link_with: libtonc)
 
 meson.override_dependency('libtonc', libtonc_dep)

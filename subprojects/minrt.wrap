@@ -1,0 +1,8 @@
+[wrap-git]
+url = https://github.com/LunarLambda/gba-minrt
+revision = main
+depth = 1
+patch_directory = minrt
+
+[provides]
+dependency_names = minrt, minrt-multiboot
