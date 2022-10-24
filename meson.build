@@ -1,6 +1,5 @@
 project('gba-meson', 'c',
   default_options: [
-    'b_staticpic=false',
     'cpp_eh=none',
     'cpp_rtti=false'])
 
@@ -18,6 +17,8 @@ subdir('tools')
 libgba = dependency('libgba')
 libtonc = dependency('libtonc')
 libseven = dependency('libseven')
+posprintf = dependency('posprintf')
+gba_hpp = dependency('gba-hpp')
 minrt = dependency('minrt')
 
 mapfile = '-Wl,-Map,@0@.map'
@@ -47,6 +48,13 @@ libseven_first = executable(
   dependencies: [libseven, minrt],
   name_suffix: 'elf',
   link_args: [mapfile.format('libseven-hello')])
+
+posprintf_test = executable(
+  'posprintf-test',
+  'src/posprintf-test.c',
+  dependencies: [libtonc, minrt, posprintf],
+  name_suffix: 'elf',
+  link_args: [mapfile.format('posprintf-test')])
 
 # Build .gba ROMs using makerom
 foreach bin : [libgba_hello, libtonc_hello, libseven_first]

@@ -1,6 +1,3 @@
-/gba-tools
-/general-tools
-/libgba
-/libseven
-/libtonc
-/minrt
+/*
+!/*.wrap
+!/packagefiles
