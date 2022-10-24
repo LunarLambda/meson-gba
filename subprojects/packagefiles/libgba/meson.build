@@ -1,7 +1,7 @@
 project('libgba', 'c',
   version: '0.5.2',
   license: 'LGPL-2.0-or-later',
-  default_options: ['c_std=none'])
+  default_options: ['warning_level=1', 'c_std=none'])
 
 sources = [
   'src/AffineSet.c',
@@ -67,7 +67,11 @@ if console.allowed()
   endif
 endif
 
-libgba = static_library('gba', sources, include_directories: includes)
+libgba = static_library(
+  'gba',
+  sources,
+  include_directories: includes,
+  c_args: ['-Wno-switch', '-Wno-multichar', '-Wa,--warn'])
 
 libgba_dep = declare_dependency(
   compile_args: compile_args,

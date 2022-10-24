@@ -1,6 +1,7 @@
 project('libtonc', 'c',
   version: '1.4.3',
-  license: 'MIT',)
+  license: 'MIT',
+  default_options: ['warning_level=1', 'c_std=none'])
 
 sources_asm = [
   'asm/clr_blend_fast.s',
@@ -95,14 +96,14 @@ libtonc_asm = static_library(
   'tonc_asm',
   sources_asm,
   include_directories: includes,
-  c_args: ['-x', 'assembler-with-cpp', '-Wa,--warn'])
+  c_args: ['-x', 'assembler-with-cpp', '-Wa,--warn'],)
 
 libtonc = static_library(
   'tonc',
   sources_c,
   include_directories: includes,
   link_with: libtonc_asm,
-  c_args: ['-Wall', '-fno-strict-aliasing'])
+  c_args: ['-fno-strict-aliasing'],)
 
 libtonc_dep = declare_dependency(
   compile_args: compile_args,
