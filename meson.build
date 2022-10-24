@@ -19,6 +19,7 @@ libtonc = dependency('libtonc')
 libseven = dependency('libseven')
 posprintf = dependency('posprintf')
 gba_hpp = dependency('gba-hpp')
+agbabi = dependency('agbabi')
 minrt = dependency('minrt')
 
 mapfile = '-Wl,-Map,@0@.map'
