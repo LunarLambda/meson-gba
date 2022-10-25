@@ -49,7 +49,7 @@ cc = meson.get_compiler('c')
 # Check if we have the relevant newlib patches
 has_devoptab_t = cc.has_type('devoptab_t', prefix: '#include <sys/iosupport.h>')
 
-console = get_option('dkp-console').require(has_devoptab_t)
+console = get_option('dkp_console').require(has_devoptab_t)
 
 if console.allowed()
   bin2s = find_program('bin2s', required: console)
@@ -77,5 +77,3 @@ libgba_dep = declare_dependency(
   compile_args: compile_args,
   include_directories: includes,
   link_with: libgba)
-
-meson.override_dependency('libgba', libgba_dep)

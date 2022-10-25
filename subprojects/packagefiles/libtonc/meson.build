@@ -80,7 +80,7 @@ cc = meson.get_compiler('c')
 # Check if we have the relevant newlib patches
 has_devoptab_t = cc.has_type('devoptab_t', prefix: '#include <sys/iosupport.h>')
 
-console = get_option('dkp-console').require(has_devoptab_t)
+console = get_option('dkp_console').require(has_devoptab_t)
 
 if console.allowed()
   sources_c += ['src/tte/tte_iohook.c']

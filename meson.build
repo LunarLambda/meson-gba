@@ -1,19 +1,45 @@
 project('gba-meson', 'c',
+  meson_version: '>=0.56.0',
   default_options: [
     'cpp_eh=none',
     'cpp_rtti=false'])
 
 # We want to compile and link as THUMB code primarily,
 # and leverage linker section garbage collection
-add_global_arguments('-mthumb', '-ffunction-sections', '-fdata-sections', language: 'c')
-add_project_link_arguments('-mthumb', '-Wl,--gc-sections', language: 'c')
+#
+# Passing -mthumb to the linker causes THUMB builds of libc, libgcc, etc.
+# to be used.
+add_global_arguments(
+  '-mthumb',
+  '-ffunction-sections',
+  '-fdata-sections',
+  language: 'c')
+
+add_project_link_arguments(
+  '-mthumb',
+  '-Wl,--gc-sections',
+  language: 'c')
+
+# https://github.com/mesonbuild/meson/issues/10957
+#
+# if meson.get_compiler('c').has_link_argument('-Wl,--no-warn-rwx-segments')
+#   add_global_link_arguments(
+#     '-Wl,--no-warn-rwx-segments',
+#     language: 'c')
+# endif
+
+# Expose devkitARM GBA specs files as dependencies, if available.
+#
+# dependency('devkitarm-gba-{rom,multiboot,ereader}-rt')
+subdir('devkitarm')
 
 # The tools directory provides some helper scripts, like `makerom` for turning
-# our ELF binaries into .gba ROM images
+# built ELF binaries into .gba ROM images
 #
 # TODO: Add gbafix flag support to makerom
 subdir('tools')
 
+# All the available libraries, compiled from source
 libgba = dependency('libgba')
 libtonc = dependency('libtonc')
 libseven = dependency('libseven')
@@ -22,13 +48,10 @@ gba_hpp = dependency('gba-hpp')
 agbabi = dependency('agbabi')
 minrt = dependency('minrt')
 
+# Template string for linker map arguments
 mapfile = '-Wl,-Map,@0@.map'
 
 # A 'classical' ELF binary build, with .elf extension and linker map output.
-#
-# We use gba-minrt as a runtime here, mostly for testing
-# If you want to use devkitARM's runtime, remove minrt from dependencies
-# and add `-specs=gba.specs` to link_args.
 libgba_hello = executable(
   'libgba-hello',
   'src/libgba-hello.c',
@@ -58,7 +81,7 @@ posprintf_test = executable(
   link_args: [mapfile.format('posprintf-test')])
 
 # Build .gba ROMs using makerom
-foreach bin : [libgba_hello, libtonc_hello, libseven_first]
+foreach bin : [libgba_hello, libtonc_hello, libseven_first, posprintf_test]
   custom_target(
     bin.name() + '-rom',
     input: bin,

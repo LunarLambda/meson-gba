@@ -3,7 +3,7 @@
 See `meson.build` for available libraries and how to generate .gba ROMs.
 
 ```sh
-meson setup --cross-file cross/arm7tdmi build
+meson setup --cross-file cross/arm7tdmi.txt build
 meson compile -C build
 ```
 
@@ -17,7 +17,7 @@ libgba and libtonc have special integration with devkitARM's version of newlib.
 The provided meson.build files will automatically detect availability and disable
 those features if needed. See `src/libgba-hello.c` and `subprojects/packagefiles/libgba/meson.build`.
 
-You can also pass `-Dlibgba.dkp-console=enabled`, which will cause a compile error
+You can also pass `-Dlibgba:dkp_console=enabled`, which will cause a compile error
 when not using devkitARM.
 
 If you wish to detect devkitARM, something like this should work:
@@ -31,8 +31,3 @@ if output.stdout().to_lower().contains('devkitarm')
     message('we have devkitARM!')
 endif
 ```
-
-gba-minrt works with both devkitARM's newlib, as well as unmodified newlib and newlib-nano builds.
-
-If you wish to use devkitARM's usual stuff, remove `minrt` as a dependency and add `-specs=gba.specs`
-or equivalent to your target's link args.
