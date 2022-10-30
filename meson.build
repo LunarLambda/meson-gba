@@ -20,6 +20,11 @@ add_project_link_arguments(
   '-Wl,--gc-sections',
   language: 'c')
 
+# Subprojects that provide programs via find_program()
+subproject('general-tools')
+subproject('gba-tools')
+subproject('superfamiconv')
+
 # https://github.com/mesonbuild/meson/issues/10957
 #
 # if meson.get_compiler('c').has_link_argument('-Wl,--no-warn-rwx-segments')
