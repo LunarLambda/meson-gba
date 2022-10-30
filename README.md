@@ -1,28 +1,86 @@
-# devkitARM-gba-meson - Ports of devkitARM's GBA development tooling to meson
+# meson-gba-toolchain - Modern GBA Development with Meson
 
-See `meson.build` for available libraries and how to generate .gba ROMs.
+This project provides [Meson][meson-build] build files for various Game Boy
+Advance libraries and tools. Everything is compiled from source as needed (see
+[dependency()][meson-dependency] and [find\_program()][meson-findprogram]).
+
+## What's Included
+
+- Basic `arm-none-eabi-gcc` cross file (`cross/arm7tdmi.txt`)
+- Example build code, with comments (`meson.build`)
+- Development Libraries:
+    - [agbabi]
+    - [gba-hpp]
+    - [gba-minrt]
+    - [libgba]
+    - [libseven]
+    - [libtonc]
+    - [posprintf]
+- Build Tools:
+    - From this repository:
+        - makerom
+    - From [general-tools]:
+        - bin2s
+        - bmp2bin
+        - padbin
+        - raw2c
+    - From [gba-tools]:
+        - gbafix
+        - gbalzss
+        - gbfs
+        - insgbfs
+        - lsgbfs
+        - ungbfs
+    - From [superfamiconv]:
+        - superfamiconv
+
+## Installation
+
+As all the libraries and tools are compiled from source, the only things you
+really need to have installed and in your PATH are:
+
+- meson
+- git
+- A compiler for your system (`cl.exe`, `gcc`, etc.)
+- A compiler for the GBA (`arm-none-eabi-gcc`)
+
+Once you have those, `git clone` or [download] this repository, then navigate
+to the directory in a terminal (or "command-line") window, and run the
+following commands:
 
 ```sh
-meson setup --cross-file cross/arm7tdmi.txt build
+meson subprojects download
+meson setup --cross-file=cross/arm7tdmi.txt build
+```
+
+If meson doesn't report any errors at this point, you should be able to compile
+the project with
+
+```sh
 meson compile -C build
 ```
 
-The built ROMs (.elf, .gba) will be in the build directory you specified.
+The built ROMs (.elf, .gba) will be in the `build` directory.
 
-## Note About Toolchains
+## Windows
 
-This project works both with devkitARM, and an unmodified arm-none-eabi toolchain.
+For development on Windows, the easiest method is to use MSYS2, either using
+the [official installer][msys2-official], or the [devkitPRO installer][msys2-dkp].
 
-libgba and libtonc have special integration with devkitARM's version of newlib.
-The provided meson.build files will automatically detect availability and disable
-those features if needed. See `src/libgba-hello.c` and `subprojects/packagefiles/libgba/meson.build`.
+Install meson, git, and gcc with `pacman -Syu meson git gcc`, and if using
+the official installer, install `mingw-w64-x86_64-arm-none-eabi-toolchain` too.
 
-You can also pass `-Dlibgba:dkp_console=enabled`, which will cause a compile error
-when not using devkitARM.
+## Compiler Support
 
-If you wish to detect devkitARM, something like this should work:
+This toolchain works both with devkitARM, and "standard" arm-none-eabi-gcc
+distributions. When reporting problems, please specify which compiler you're
+using, and what version (output of `arm-none-eabi-gcc --version`), as well
+as the output of `meson setup` / `meson reconfigure`.
 
-```
+If you wish to detect the devkitARM compiler specifically in meson.build,
+you can do something like this:
+
+```meson
 cc = meson.get_compiler('c')
 
 output = run_command(cc, '--version', capture: true)
@@ -31,3 +89,38 @@ if output.stdout().to_lower().contains('devkitarm')
     message('we have devkitARM!')
 endif
 ```
+
+See the [Meson compiler API][meson-compiler] for other things you can test for.
+
+## Configurable Features
+
+libgba and libtonc have special integration with devkitARM's version of newlib.
+The provided `meson.build` files will automatically detect availability and add
+appropriate compiler flags (C/C++). See `src/libgba-hello.c` for an example.
+
+You can specify the following [Meson build options][meson-options]:
+
+Option                 | Type    | Description                       | Default
+-----------------------|---------|-----------------------------------|---------
+`agbabi:use_devkitarm` | boolean | Build for devkitARM newlib        | false
+`libgba:dkp_console`   | feature | Enable devkitARM console features | auto
+`libtonc:dkp_console`  | feature | Enable devkitARM console features | auto
+
+[agbabi]: https://github.com/felixjones/agbabi
+[gba-hpp]: https://github.com/felixjones/gba-hpp
+[gba-minrt]: https://github.com/LunarLambda/gba-minrt
+[libgba]: https://github.com/devkitpro/libgba
+[libseven]: https://github.com/LunarLambda/libseven
+[libtonc]: https://github.com/devkitpro/libtonc
+[posprintf]: http://danposluns.com/gbadev/posprintf/index.html
+[gba-tools]: https://github.com/devkitpro/gba-tools
+[general-tools]: https://github.com/devkitpro/general-tools
+[superfamiconv]: https://github.com/optiroc/superfamiconv
+[download]: https://github.com/LunarLambda/meson-gba-toolchain/archive/refs/heads/main.zip
+[msys2-dkp]: https://devkitpro.org/wiki/Getting_Started#Windows
+[msys2-official]: https://www.msys2.org
+[meson-build]: https://mesonbuild.com/index.html
+[meson-compiler]: https://mesonbuild.com/Reference-manual_returned_compiler.html
+[meson-dependency]: https://mesonbuild.com/Dependencies.html
+[meson-findprogram]: https://mesonbuild.com/Reference-manual_functions.html#find_program
+[meson-options]: https://mesonbuild.com/Build-options.html#using-build-options
