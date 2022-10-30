@@ -31,7 +31,7 @@ Advance libraries and tools. Everything is compiled from source as needed (see
         - insgbfs
         - lsgbfs
         - ungbfs
-    - From [superfamiconv]:
+    - From [SuperFamiconv]:
         - superfamiconv
 
 ## Installation
@@ -65,7 +65,7 @@ The built ROMs (.elf, .gba) will be in the `build` directory.
 ## Windows
 
 For development on Windows, the easiest method is to use MSYS2, either using
-the [official installer][msys2-official], or the [devkitPRO installer][msys2-dkp].
+the [official installer][msys2-official], or the [devkitPro installer][msys2-dkp].
 
 Install meson, git, and gcc with `pacman -Syu meson git gcc`, and if using
 the official installer, install `mingw-w64-x86_64-arm-none-eabi-toolchain` too.
@@ -107,20 +107,20 @@ Option                 | Type    | Description                       | Default
 `libtonc:dkp_console`  | feature | Enable devkitARM console features | auto
 
 [agbabi]: https://github.com/felixjones/agbabi
+[download]: https://github.com/LunarLambda/meson-gba-toolchain/archive/refs/heads/main.zip
 [gba-hpp]: https://github.com/felixjones/gba-hpp
 [gba-minrt]: https://github.com/LunarLambda/gba-minrt
-[libgba]: https://github.com/devkitpro/libgba
+[gba-tools]: https://github.com/devkitPro/gba-tools
+[general-tools]: https://github.com/devkitPro/general-tools
+[libgba]: https://github.com/devkitPro/libgba
 [libseven]: https://github.com/LunarLambda/libseven
-[libtonc]: https://github.com/devkitpro/libtonc
-[posprintf]: http://danposluns.com/gbadev/posprintf/index.html
-[gba-tools]: https://github.com/devkitpro/gba-tools
-[general-tools]: https://github.com/devkitpro/general-tools
-[superfamiconv]: https://github.com/optiroc/superfamiconv
-[download]: https://github.com/LunarLambda/meson-gba-toolchain/archive/refs/heads/main.zip
-[msys2-dkp]: https://devkitpro.org/wiki/Getting_Started#Windows
-[msys2-official]: https://www.msys2.org
+[libtonc]: https://github.com/devkitPro/libtonc
 [meson-build]: https://mesonbuild.com/index.html
 [meson-compiler]: https://mesonbuild.com/Reference-manual_returned_compiler.html
 [meson-dependency]: https://mesonbuild.com/Dependencies.html
 [meson-findprogram]: https://mesonbuild.com/Reference-manual_functions.html#find_program
 [meson-options]: https://mesonbuild.com/Build-options.html#using-build-options
+[msys2-dkp]: https://devkitpro.org/wiki/Getting_Started#Windows
+[msys2-official]: https://www.msys2.org
+[posprintf]: http://danposluns.com/gbadev/posprintf/index.html
+[superfamiconv]: https://github.com/Optiroc/SuperFamiconv
