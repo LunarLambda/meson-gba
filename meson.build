@@ -25,6 +25,8 @@ subproject('general-tools')
 subproject('gba-tools')
 subproject('superfamiconv')
 
+sdk_seven = subproject('sdk-seven')
+
 # https://github.com/mesonbuild/meson/issues/10957
 #
 # if meson.get_compiler('c').has_link_argument('-Wl,--no-warn-rwx-segments')
@@ -37,12 +39,6 @@ subproject('superfamiconv')
 #
 # dependency('devkitarm-gba-{rom,multiboot,ereader}-rt')
 subdir('devkitarm')
-
-# The tools directory provides some helper scripts, like `makerom` for turning
-# built ELF binaries into .gba ROM images
-#
-# TODO: Add gbafix flag support to makerom
-subdir('tools')
 
 # All the available libraries, compiled from source
 libgba = dependency('libgba')
@@ -84,6 +80,8 @@ posprintf_test = executable(
   dependencies: [libtonc, minrt, posprintf],
   name_suffix: 'elf',
   link_args: [mapfile.format('posprintf-test')])
+
+makerom = sdk_seven.get_variable('makerom')
 
 # Build .gba ROMs using makerom
 foreach bin : [libgba_hello, libtonc_hello, libseven_first, posprintf_test]
