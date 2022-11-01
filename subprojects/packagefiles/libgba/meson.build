@@ -77,3 +77,5 @@ libgba_dep = declare_dependency(
   compile_args: compile_args,
   include_directories: includes,
   link_with: libgba)
+
+meson.override_dependency('libgba', libgba_dep)
