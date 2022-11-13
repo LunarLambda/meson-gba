@@ -1,5 +1,5 @@
 [wrap-git]
-url = https://github.com/devkitpro/libgba
+url = https://github.com/gbadev-org/libgba
 revision = master
 depth = 1
 patch_directory = libgba
