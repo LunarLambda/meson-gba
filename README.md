@@ -1,4 +1,4 @@
-# meson-gba-toolchain - Modern GBA Development with Meson
+# meson-gba - Modern GBA Development with Meson
 
 This project provides [Meson][meson-build] build files for various Game Boy
 Advance libraries and tools. Everything is compiled from source as needed (see
@@ -17,7 +17,7 @@ Advance libraries and tools. Everything is compiled from source as needed (see
     - [libtonc]
     - [posprintf]
 - Build Tools:
-    - From this repository:
+    - From [sdk-seven]:
         - makerom
     - From [general-tools]:
         - bin2s
@@ -58,6 +58,12 @@ the project with
 
 ```sh
 meson compile -C build
+```
+
+or
+
+```sh
+ninja -C build
 ```
 
 The built ROMs (.elf, .gba) will be in the `build` directory.
@@ -102,9 +108,15 @@ You can specify the following [Meson build options][meson-options]:
 
 Option                 | Type    | Description                       | Default
 -----------------------|---------|-----------------------------------|---------
-`agbabi:use_devkitarm` | boolean | Build for devkitARM newlib        | false
+`buildtheworld`        | boolean | Build all bundled subprojects     | false
+`agbabi:use_devkitarm` | boolean | Build for devkitARM's newlib      | false
 `libgba:dkp_console`   | feature | Enable devkitARM console features | auto
 `libtonc:dkp_console`  | feature | Enable devkitARM console features | auto
+
+## License
+
+This project is licensed under the zlib license.\
+See [LICENSE.txt](./LICENSE.txt) for more information.
 
 [agbabi]: https://github.com/felixjones/agbabi
 [download]: https://github.com/LunarLambda/meson-gba-toolchain/archive/refs/heads/main.zip
@@ -123,4 +135,5 @@ Option                 | Type    | Description                       | Default
 [msys2-dkp]: https://devkitpro.org/wiki/Getting_Started#Windows
 [msys2-official]: https://www.msys2.org
 [posprintf]: http://danposluns.com/gbadev/posprintf/index.html
+[sdk-seven]: https://github.com/LunarLambda/sdk-seven
 [superfamiconv]: https://github.com/Optiroc/SuperFamiconv

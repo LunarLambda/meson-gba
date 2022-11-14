@@ -1,0 +1,1 @@
+option('buildtheworld', type: 'boolean', value: false, description: 'Build all subprojects')

@@ -1,11 +1,14 @@
 project('gba-meson', 'c',
+  version: '0.1.0',
+  license: 'Zlib',
   meson_version: '>=0.56.0',
   default_options: [
+    'warning_level=2',
     'cpp_eh=none',
     'cpp_rtti=false'])
 
 # We want to compile and link as THUMB code primarily,
-# and leverage linker section garbage collection
+# and leverage linker section garbage collection.
 #
 # Passing -mthumb to the linker causes THUMB builds of libc, libgcc, etc.
 # to be used.
@@ -18,22 +21,27 @@ add_global_arguments(
 add_project_link_arguments(
   '-mthumb',
   '-Wl,--gc-sections',
+  '-Wl,--no-warn-rwx-segments',
   language: 'c')
 
-# Subprojects that provide programs via find_program()
-subproject('general-tools')
-subproject('gba-tools')
-subproject('superfamiconv')
+# For development purposes only
+if get_option('buildtheworld')
+  subprojects = [
+    'agbabi',
+    'gba-hpp',
+    'gba-tools',
+    'general-tools',
+    'libgba',
+    'libtonc',
+    'posprintf',
+    'sdk-seven',
+    'superfamiconv',
+  ]
 
-sdk_seven = subproject('sdk-seven')
-
-# https://github.com/mesonbuild/meson/issues/10957
-#
-# if meson.get_compiler('c').has_link_argument('-Wl,--no-warn-rwx-segments')
-#   add_global_link_arguments(
-#     '-Wl,--no-warn-rwx-segments',
-#     language: 'c')
-# endif
+  foreach s : subprojects
+    subproject(s)
+  endforeach
+endif
 
 # Expose devkitARM GBA specs files as dependencies, if available.
 #
@@ -81,7 +89,7 @@ posprintf_test = executable(
   name_suffix: 'elf',
   link_args: [mapfile.format('posprintf-test')])
 
-makerom = sdk_seven.get_variable('makerom')
+makerom = subproject('sdk-seven').get_variable('makerom')
 
 # Build .gba ROMs using makerom
 foreach bin : [libgba_hello, libtonc_hello, libseven_first, posprintf_test]
