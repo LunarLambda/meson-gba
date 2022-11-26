@@ -15,6 +15,7 @@ Advance libraries and tools. Everything is compiled from source as needed (see
     - [libgba]
     - [libseven]
     - [libtonc]
+    - [maxmod]
     - [posprintf]
 - Build Tools:
     - From [sdk-seven]:
@@ -31,6 +32,8 @@ Advance libraries and tools. Everything is compiled from source as needed (see
         - insgbfs
         - lsgbfs
         - ungbfs
+    - From [mmutil]:
+        - mmutil
     - From [SuperFamiconv]:
         - superfamiconv
 
@@ -119,7 +122,7 @@ This project is licensed under the zlib license.\
 See [LICENSE.txt](./LICENSE.txt) for more information.
 
 [agbabi]: https://github.com/felixjones/agbabi
-[download]: https://github.com/LunarLambda/meson-gba-toolchain/archive/refs/heads/main.zip
+[download]: https://github.com/LunarLambda/meson-gba/archive/refs/heads/main.zip
 [gba-hpp]: https://github.com/felixjones/gba-hpp
 [gba-minrt]: https://github.com/LunarLambda/gba-minrt
 [gba-tools]: https://github.com/devkitPro/gba-tools
@@ -127,11 +130,13 @@ See [LICENSE.txt](./LICENSE.txt) for more information.
 [libgba]: https://github.com/devkitPro/libgba
 [libseven]: https://github.com/LunarLambda/libseven
 [libtonc]: https://github.com/devkitPro/libtonc
+[maxmod]: https://github.com/devkitPro/maxmod
 [meson-build]: https://mesonbuild.com/index.html
 [meson-compiler]: https://mesonbuild.com/Reference-manual_returned_compiler.html
 [meson-dependency]: https://mesonbuild.com/Dependencies.html
 [meson-findprogram]: https://mesonbuild.com/Reference-manual_functions.html#find_program
 [meson-options]: https://mesonbuild.com/Build-options.html#using-build-options
+[mmutil]: https://github.com/GValiente/mmutil
 [msys2-dkp]: https://devkitpro.org/wiki/Getting_Started#Windows
 [msys2-official]: https://www.msys2.org
 [posprintf]: http://danposluns.com/gbadev/posprintf/index.html

@@ -33,6 +33,7 @@ if get_option('buildtheworld')
     'general-tools',
     'libgba',
     'libtonc',
+    'maxmod',
     'mmutil',
     'posprintf',
     'sdk-seven',

@@ -1,0 +1,8 @@
+[wrap-git]
+url = https://github.com/devkitPro/maxmod
+revision = master
+depth = 1
+patch_directory = maxmod
+
+[provide]
+dependency_names = maxmod
