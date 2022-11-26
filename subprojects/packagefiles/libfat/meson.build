@@ -4,6 +4,14 @@ project('libfat', 'c',
 
 libgba_dep = dependency('libgba')
 
+cc = meson.get_compiler('c')
+
+has_devoptab_t = cc.has_type('devoptab_t', prefix: '#include <sys/iosupport.h>')
+
+if not has_devoptab_t
+  error('compiler doesn\'t suppport devoptab_t')
+endif
+
 ver = meson.project_version().split('.')
 
 ver_cfg = {
