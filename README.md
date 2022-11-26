@@ -12,6 +12,7 @@ Advance libraries and tools. Everything is compiled from source as needed (see
     - [agbabi]
     - [gba-hpp]
     - [gba-minrt]
+    - [libfat]
     - [libgba]
     - [libseven]
     - [libtonc]
@@ -127,6 +128,7 @@ See [LICENSE.txt](./LICENSE.txt) for more information.
 [gba-minrt]: https://github.com/LunarLambda/gba-minrt
 [gba-tools]: https://github.com/devkitPro/gba-tools
 [general-tools]: https://github.com/devkitPro/general-tools
+[libfat]: https://github.com/devkitPro/libfat
 [libgba]: https://github.com/devkitPro/libgba
 [libseven]: https://github.com/LunarLambda/libseven
 [libtonc]: https://github.com/devkitPro/libtonc

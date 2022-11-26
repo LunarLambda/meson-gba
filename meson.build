@@ -31,6 +31,7 @@ if get_option('buildtheworld')
     'gba-hpp',
     'gba-tools',
     'general-tools',
+    'libfat',
     'libgba',
     'libtonc',
     'maxmod',
@@ -50,6 +51,8 @@ endif
 # dependency('devkitarm-gba-{rom,multiboot,ereader}-rt')
 subdir('devkitarm')
 
+dka_rt = dependency('devkitarm-gba-rom-rt')
+
 # All the available libraries, compiled from source
 libgba = dependency('libgba')
 libtonc = dependency('libtonc')
@@ -62,32 +65,38 @@ minrt = dependency('minrt')
 # Template string for linker map arguments
 mapfile = '-Wl,-Map,@0@.map'
 
+if dka_rt.found()
+  rt_dep = dka_rt
+else
+  rt_dep = minrt
+endif
+
 # A 'classical' ELF binary build, with .elf extension and linker map output.
 libgba_hello = executable(
   'libgba-hello',
   'src/libgba-hello.c',
-  dependencies: [libgba, minrt],
+  dependencies: [libgba, rt_dep],
   name_suffix: 'elf',
   link_args: [mapfile.format('libgba-hello')])
 
 libtonc_hello = executable(
   'libtonc-hello',
   'src/libtonc-hello.c',
-  dependencies: [libtonc, minrt],
+  dependencies: [libtonc, rt_dep],
   name_suffix: 'elf',
   link_args: [mapfile.format('libtonc-hello')])
 
 libseven_first = executable(
   'libseven-first',
   'src/libseven-first.c',
-  dependencies: [libseven, minrt],
+  dependencies: [libseven, rt_dep],
   name_suffix: 'elf',
   link_args: [mapfile.format('libseven-hello')])
 
 posprintf_test = executable(
   'posprintf-test',
   'src/posprintf-test.c',
-  dependencies: [libtonc, minrt, posprintf],
+  dependencies: [libtonc, rt_dep, posprintf],
   name_suffix: 'elf',
   link_args: [mapfile.format('posprintf-test')])
 
