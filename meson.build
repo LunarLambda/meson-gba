@@ -18,6 +18,10 @@ add_global_arguments(
   '-fdata-sections',
   language: 'c')
 
+if get_option('debug')
+  add_global_arguments('-gdwarf-4', language: 'c')
+endif
+
 add_project_link_arguments(
   '-mthumb',
   '-Wl,--gc-sections',
