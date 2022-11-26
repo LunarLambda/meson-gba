@@ -1,13 +1,24 @@
 # meson-gba - Modern GBA Development with Meson
 
 This project provides [Meson][meson-build] build files for various Game Boy
-Advance libraries and tools. Everything is compiled from source as needed (see
-[dependency()][meson-dependency] and [find\_program()][meson-findprogram]).
+Advance libraries and tools.
+
+## Development Notice
+
+This project is still very much in alpha. Things are still messy, particularly
+around differences between devkitARM and other ARM toolchains. Things might
+break unexpectedly, and things are developed with the latest versions of
+meson and GCC/devkitARM in mind.
+
+If things don't work, make sure things are up to date, and check the
+[Configurable Features](#configurable-features) section for settings you may
+need to adjust.
+
+If a library/tool fails to compile at all, it's probably been updated upstream,
+in which case, please open an issue about it.
 
 ## What's Included
 
-- Basic `arm-none-eabi-gcc` cross file (`cross/arm7tdmi.txt`)
-- Example build code, with comments (`meson.build`)
 - Development Libraries:
     - [agbabi]
     - [gba-hpp]
@@ -19,8 +30,6 @@ Advance libraries and tools. Everything is compiled from source as needed (see
     - [maxmod]
     - [posprintf]
 - Build Tools:
-    - From [sdk-seven]:
-        - makerom
     - From [general-tools]:
         - bin2s
         - bmp2bin
@@ -35,21 +44,25 @@ Advance libraries and tools. Everything is compiled from source as needed (see
         - ungbfs
     - From [mmutil]:
         - mmutil
+    - From [sdk-seven]:
+        - makerom
     - From [SuperFamiconv]:
         - superfamiconv
 
 ## Installation
 
 As all the libraries and tools are compiled from source, the only things you
-really need to have installed and in your PATH are:
+need to have installed and in your PATH are:
 
 - meson
-- git
+- git (for downloading the subprojects)
 - A compiler for your system (`cl.exe`, `gcc`, etc.)
 - A compiler for the GBA (`arm-none-eabi-gcc`)
 
-Once you have those, `git clone` or [download] this repository, then navigate
-to the directory in a terminal (or "command-line") window, and run the
+## Compiling
+
+Once you have everything, `git clone` or [download] this repository, then
+navigate to the directory in a terminal (or "command-line") window, and run the
 following commands:
 
 ```sh
@@ -85,10 +98,9 @@ the official installer, install `mingw-w64-x86_64-arm-none-eabi-toolchain` too.
 This toolchain works both with devkitARM, and "standard" arm-none-eabi-gcc
 distributions. When reporting problems, please specify which compiler you're
 using, and what version (output of `arm-none-eabi-gcc --version`), as well
-as the output of `meson setup` / `meson reconfigure`.
+as the output of `meson setup`.
 
-If you wish to detect the devkitARM compiler specifically in meson.build,
-you can do something like this:
+If you wish to detect the devkitARM compiler specifically:
 
 ```meson
 cc = meson.get_compiler('c')
@@ -125,12 +137,12 @@ See [LICENSE.txt](./LICENSE.txt) for more information.
 [agbabi]: https://github.com/felixjones/agbabi
 [download]: https://github.com/LunarLambda/meson-gba/archive/refs/heads/main.zip
 [gba-hpp]: https://github.com/felixjones/gba-hpp
-[gba-minrt]: https://github.com/LunarLambda/gba-minrt
+[gba-minrt]: https://github.com/LunarLambda/sdk-seven
 [gba-tools]: https://github.com/devkitPro/gba-tools
 [general-tools]: https://github.com/devkitPro/general-tools
 [libfat]: https://github.com/devkitPro/libfat
 [libgba]: https://github.com/devkitPro/libgba
-[libseven]: https://github.com/LunarLambda/libseven
+[libseven]: https://github.com/LunarLambda/sdk-seven
 [libtonc]: https://github.com/devkitPro/libtonc
 [maxmod]: https://github.com/devkitPro/maxmod
 [meson-build]: https://mesonbuild.com/index.html

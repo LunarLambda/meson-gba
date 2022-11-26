@@ -31,7 +31,7 @@ if get_option('buildtheworld')
     'gba-hpp',
     'gba-tools',
     'general-tools',
-    'libfat',
+    # 'libfat', # NOTE: Only compiles with devkitARM
     'libgba',
     'libtonc',
     'maxmod',
