@@ -59,7 +59,8 @@ if console.allowed()
       'amiga-font',
       command: ['./bin2s-shim', bin2s.full_path(), '@OUTPUT1@', '-a', '2', '-H', '@OUTPUT0@', '@INPUT@'],
       input: ['data/amiga.fnt'],
-      output: ['amiga_fnt.h', 'amiga_fnt.s'])
+      output: ['amiga_fnt.h', 'amiga_fnt.s'],
+      depends: [bin2s])
 
     sources += ['src/console.c', font]
 

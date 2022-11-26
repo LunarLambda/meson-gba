@@ -1,6 +1,7 @@
 project('general-tools', 'c', 'cpp',
   version: '1.2.0',
-  license: 'GPL-3.0-or-later')
+  license: 'GPL-3.0-or-later',
+  default_options: ['warning_level=0'])
 
 package_string = '"@0@ @1@"'.format(meson.project_name(), meson.project_version())
 

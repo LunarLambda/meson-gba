@@ -1,7 +1,7 @@
 project('gba-tools', 'c', 'cpp',
   version: '1.2.0',
   license: 'GPL-3.0-or-later',
-  default_options: ['cpp_std=c++11'])
+  default_options: ['warning_level=0', 'cpp_std=c++11'])
 
 gbafix  = executable('gbafix',  'src/gbafix.c',    native: true)
 gbalzss = executable('gbalzss', 'src/gbalzss.cpp', native: true)

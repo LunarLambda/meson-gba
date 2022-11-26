@@ -51,7 +51,7 @@ endif
 # dependency('devkitarm-gba-{rom,multiboot,ereader}-rt')
 subdir('devkitarm')
 
-dka_rt = dependency('devkitarm-gba-rom-rt')
+dka_rt = dependency('devkitarm-gba-rom-rt', required: false)
 
 # All the available libraries, compiled from source
 libgba = dependency('libgba')
