@@ -22,13 +22,17 @@ in which case, please open an issue about it.
 - Development Libraries:
     - [agbabi]
     - [gba-hpp]
-    - [gba-minrt]
     - [libfat]
     - [libgba]
     - [libseven]
     - [libtonc]
+    - [libugba]
     - [maxmod]
     - [posprintf]
+- Runtime Libraries:
+    - [devkitARM]
+    - [libsysgba]
+    - [minrt]
 - Build Tools:
     - From [general-tools]:
         - bin2s
@@ -137,19 +141,21 @@ See [LICENSE.txt](./LICENSE.txt) for more information.
 [agbabi]: https://github.com/felixjones/agbabi
 [download]: https://github.com/LunarLambda/meson-gba/archive/refs/heads/main.zip
 [gba-hpp]: https://github.com/felixjones/gba-hpp
-[gba-minrt]: https://github.com/LunarLambda/sdk-seven
 [gba-tools]: https://github.com/devkitPro/gba-tools
 [general-tools]: https://github.com/devkitPro/general-tools
 [libfat]: https://github.com/devkitPro/libfat
 [libgba]: https://github.com/devkitPro/libgba
 [libseven]: https://github.com/LunarLambda/sdk-seven
+[libsysgba]: https://github.com/AntonioND/libugba
 [libtonc]: https://github.com/devkitPro/libtonc
+[libugba]: https://github.com/AntonioND/libugba
 [maxmod]: https://github.com/devkitPro/maxmod
 [meson-build]: https://mesonbuild.com/index.html
 [meson-compiler]: https://mesonbuild.com/Reference-manual_returned_compiler.html
 [meson-dependency]: https://mesonbuild.com/Dependencies.html
 [meson-findprogram]: https://mesonbuild.com/Reference-manual_functions.html#find_program
 [meson-options]: https://mesonbuild.com/Build-options.html#using-build-options
+[minrt]: https://github.com/LunarLambda/sdk-seven
 [mmutil]: https://github.com/GValiente/mmutil
 [msys2-dkp]: https://devkitpro.org/wiki/Getting_Started#Windows
 [msys2-official]: https://www.msys2.org

@@ -38,6 +38,7 @@ if get_option('buildtheworld')
     # 'libfat', # NOTE: Only compiles with devkitARM
     'libgba',
     'libtonc',
+    'libugba',
     'maxmod',
     'mmutil',
     'posprintf',
