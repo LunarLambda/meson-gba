@@ -4,4 +4,4 @@ revision = main
 depth = 1
 
 [provides]
-dependency_names = libseven, minrt
+dependency_names = libseven, minrt, minrt-multiboot

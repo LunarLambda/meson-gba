@@ -2,7 +2,6 @@
 url = https://github.com/felixjones/agbabi
 revision = 2.0
 depth = 1
-patch_directory = agbabi
 
 [provide]
 dependency_names = agbabi
