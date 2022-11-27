@@ -7,112 +7,53 @@ project('gba-meson', 'c',
     'cpp_eh=none',
     'cpp_rtti=false'])
 
-# We want to compile and link as THUMB code primarily,
-# and leverage linker section garbage collection.
-#
-# Passing -mthumb to the linker causes THUMB builds of libc, libgcc, etc.
-# to be used.
-add_global_arguments(
+# Figure out if we have devkitARM.
+cc = meson.get_compiler('c')
+
+cc_ver = run_command(cc, '--version', capture: true)
+
+if cc_ver.stdout().to_lower().contains('devkitarm')
+  have_devkitarm = true
+else
+  have_devkitarm = false
+endif
+
+# List of global compilation args. All libraries will be built with these.
+compile_args = [
   '-mthumb',
   '-ffunction-sections',
   '-fdata-sections',
-  language: 'c')
+]
 
+# no$gba does not support DWARF 5 debug info and crashes. Use DWARF 4.
 if get_option('debug')
-  add_global_arguments('-gdwarf-4', language: 'c')
+  compile_args += '-gdwarf-4'
 endif
 
-add_project_link_arguments(
+add_global_arguments(compile_args, language: 'c')
+
+# List of link arguments.
+link_args = [
   '-mthumb',
   '-Wl,--gc-sections',
-  '-Wl,--no-warn-rwx-segments',
-  language: 'c')
+]
 
-# For development purposes only
-if get_option('buildtheworld')
-  subprojects = [
-    'agbabi',
-    'gba-hpp',
-    'gba-tools',
-    'general-tools',
-    # 'libfat', # NOTE: Only compiles with devkitARM
-    'libgba',
-    'libtonc',
-    'libugba',
-    'maxmod',
-    'mmutil',
-    'posprintf',
-    'sdk-seven',
-    'superfamiconv',
-  ]
-
-  foreach s : subprojects
-    subproject(s)
-  endforeach
+# Newer binutils add warnings we don't care about
+if find_program('ld', version: '>=2.39', required: false).found()
+  link_args += '-Wl,--no-warn-rwx-segments'
 endif
 
-# Expose devkitARM GBA specs files as dependencies, if available.
-#
-# dependency('devkitarm-gba-{rom,multiboot,ereader}-rt')
+# Use libc_nano if available.
+if cc.find_library('c_nano', required: false).found()
+  link_args += '-specs=nano.specs'
+endif
+
+add_project_link_arguments(link_args, language: 'c')
+
+# For internal development
+if get_option('dev')
+  subdir('dev')
+endif
+
 subdir('devkitarm')
-
-dka_rt = dependency('devkitarm-gba-rom-rt', required: false)
-
-# All the available libraries, compiled from source
-libgba = dependency('libgba')
-libtonc = dependency('libtonc')
-libseven = dependency('libseven')
-posprintf = dependency('posprintf')
-gba_hpp = dependency('gba-hpp')
-agbabi = dependency('agbabi')
-minrt = dependency('minrt')
-
-# Template string for linker map arguments
-mapfile = '-Wl,-Map,@0@.map'
-
-if dka_rt.found()
-  rt_dep = dka_rt
-else
-  rt_dep = minrt
-endif
-
-# A 'classical' ELF binary build, with .elf extension and linker map output.
-libgba_hello = executable(
-  'libgba-hello',
-  'src/libgba-hello.c',
-  dependencies: [libgba, rt_dep],
-  name_suffix: 'elf',
-  link_args: [mapfile.format('libgba-hello')])
-
-libtonc_hello = executable(
-  'libtonc-hello',
-  'src/libtonc-hello.c',
-  dependencies: [libtonc, rt_dep],
-  name_suffix: 'elf',
-  link_args: [mapfile.format('libtonc-hello')])
-
-libseven_first = executable(
-  'libseven-first',
-  'src/libseven-first.c',
-  dependencies: [libseven, rt_dep],
-  name_suffix: 'elf',
-  link_args: [mapfile.format('libseven-hello')])
-
-posprintf_test = executable(
-  'posprintf-test',
-  'src/posprintf-test.c',
-  dependencies: [libtonc, rt_dep, posprintf],
-  name_suffix: 'elf',
-  link_args: [mapfile.format('posprintf-test')])
-
-makerom = subproject('sdk-seven').get_variable('makerom')
-
-# Build .gba ROMs using makerom
-foreach bin : [libgba_hello, libtonc_hello, libseven_first, posprintf_test]
-  custom_target(
-    bin.name() + '-rom',
-    input: bin,
-    output: bin.name() + '.gba',
-    command: [makerom, '@INPUT@', '@OUTPUT@'],
-    build_by_default: true)
-endforeach
+subdir('examples')

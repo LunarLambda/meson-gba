@@ -19,6 +19,6 @@ if cc.has_argument('-specs=gba_er.specs')
     link_args: ['-specs=gba_er.specs'])
 endif
 
-meson.override_dependency('devkitarm-gba-rom-rt', dka_rom_rt)
-meson.override_dependency('devkitarm-gba-multiboot-rt', dka_mb_rt)
-meson.override_dependency('devkitarm-gba-ereader-rt', dka_er_rt)
+meson.override_dependency('devkitarm-rom-rt', dka_rom_rt)
+meson.override_dependency('devkitarm-multiboot-rt', dka_mb_rt)
+meson.override_dependency('devkitarm-ereader-rt', dka_er_rt)
