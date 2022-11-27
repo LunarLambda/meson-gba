@@ -139,6 +139,7 @@ This project is licensed under the zlib license.\
 See [LICENSE.txt](./LICENSE.txt) for more information.
 
 [agbabi]: https://github.com/felixjones/agbabi
+[devkitARM]: https://github.com/devkitPro/devkitarm-crtls
 [download]: https://github.com/LunarLambda/meson-gba/archive/refs/heads/main.zip
 [gba-hpp]: https://github.com/felixjones/gba-hpp
 [gba-tools]: https://github.com/devkitPro/gba-tools
