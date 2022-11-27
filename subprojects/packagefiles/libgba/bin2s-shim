@@ -1,12 +1,8 @@
-#!/bin/sh
+#!/usr/bin/env python3
 
-if [ "$#" -lt "2" ]; then
-    echo "usage: $0 <bin2s executable> <output file> [bin2s flags...]"
-    exit 1;
-fi
+import subprocess
+from sys import argv
 
-exe="$1"
-out="$2"
-shift 2
+out = open(argv[2], 'w')
 
-"$exe" "$@" > "$out"
+subprocess.call([argv[1]] + argv[3:], stdout=out)

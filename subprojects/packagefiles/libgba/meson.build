@@ -57,10 +57,9 @@ if console.allowed()
   if bin2s.found()
     font = custom_target(
       'amiga-font',
-      command: ['./bin2s-shim', bin2s.full_path(), '@OUTPUT1@', '-a', '2', '-H', '@OUTPUT0@', '@INPUT@'],
+      command: ['bin2s-shim', bin2s.full_path(), '@OUTPUT0@', '-a', '2', '-H', '@OUTPUT1@', '@INPUT@'],
       input: ['data/amiga.fnt'],
-      output: ['amiga_fnt.h', 'amiga_fnt.s'],
-      depends: [bin2s])
+      output: ['amiga_fnt.s', 'amiga_fnt.h'])
 
     sources += ['src/console.c', font]
 
