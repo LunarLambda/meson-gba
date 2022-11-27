@@ -1,7 +1,7 @@
 # Figure out if we have devkitARM.
 cc = meson.get_compiler('c')
 
-cc_ver = run_command(cc, '--version', capture: true)
+cc_ver = run_command(cc, '--version', capture: true, check: false)
 
 if cc_ver.stdout().to_lower().contains('devkitarm')
   have_devkitarm = true
