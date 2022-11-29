@@ -22,6 +22,7 @@ in which case, please open an issue about it.
 - Development Libraries:
     - [agbabi]
     - [gba-hpp]
+    - [gbt-player]
     - [libfat]
     - [libgba]
     - [libseven]
@@ -46,6 +47,10 @@ in which case, please open an issue about it.
         - insgbfs
         - lsgbfs
         - ungbfs
+    - From [gbt-player]:
+        - mod2gbt
+        - s3m2gbt
+        - s3msplit
     - From [mmutil]:
         - mmutil
     - From [sdk-seven]:
@@ -143,6 +148,7 @@ See [LICENSE.txt](./LICENSE.txt) for more information.
 [download]: https://github.com/LunarLambda/meson-gba/archive/refs/heads/main.zip
 [gba-hpp]: https://github.com/felixjones/gba-hpp
 [gba-tools]: https://github.com/devkitPro/gba-tools
+[gbt-player]: https://github.com/AntonioND/gbt-player
 [general-tools]: https://github.com/devkitPro/general-tools
 [libfat]: https://github.com/devkitPro/libfat
 [libgba]: https://github.com/devkitPro/libgba
@@ -153,8 +159,6 @@ See [LICENSE.txt](./LICENSE.txt) for more information.
 [maxmod]: https://github.com/devkitPro/maxmod
 [meson-build]: https://mesonbuild.com/index.html
 [meson-compiler]: https://mesonbuild.com/Reference-manual_returned_compiler.html
-[meson-dependency]: https://mesonbuild.com/Dependencies.html
-[meson-findprogram]: https://mesonbuild.com/Reference-manual_functions.html#find_program
 [meson-options]: https://mesonbuild.com/Build-options.html#using-build-options
 [minrt]: https://github.com/LunarLambda/sdk-seven
 [mmutil]: https://github.com/GValiente/mmutil

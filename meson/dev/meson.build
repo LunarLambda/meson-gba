@@ -3,6 +3,7 @@ subprojects = [
   'gba-hpp',
   'gba-tools',
   'gbfs',
+  'gbt-player',
   'general-tools',
   'libgba',
   'libtonc',
