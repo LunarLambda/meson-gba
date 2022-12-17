@@ -1,6 +1,7 @@
 subprojects = [
   'agbabi',
   'butano',
+  'gbadv',
   'gba-hpp',
   'gba-tools',
   'gbfs',

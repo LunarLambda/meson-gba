@@ -23,6 +23,7 @@ in which case, please open an issue about it.
     - [agbabi]
     - [butano]
     - [gba-hpp]
+    - [gbadv]
     - [gbt-player]
     - [libfat]
     - [libgba]
@@ -147,6 +148,7 @@ See [LICENSE.txt](./LICENSE.txt) for more information.
 [butano]: https://github.com/GValiente/butano
 [devkitARM]: https://github.com/devkitPro/devkitarm-crtls
 [download]: https://github.com/LunarLambda/meson-gba/archive/refs/heads/main.zip
+[gbadv]: https://github.com/sverx/GBAdv
 [gba-hpp]: https://github.com/felixjones/gba-hpp
 [gba-tools]: https://github.com/devkitPro/gba-tools
 [gbt-player]: https://github.com/AntonioND/gbt-player
