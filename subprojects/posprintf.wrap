@@ -6,5 +6,5 @@ patch_directory = posprintf
 # Not really, but the zip is messy
 lead_directory_missing = true
 
-[provides]
+[provide]
 dependency_names = posprintf

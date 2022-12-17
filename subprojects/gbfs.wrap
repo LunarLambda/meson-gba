@@ -5,5 +5,5 @@ source_hash     = 8d02a29e033bf3247209baf66d00820654a2ce8c485b64001a5f4570bd8aad
 patch_directory = gbfs
 lead_directory_missing = true
 
-[provides]
+[provide]
 dependency_names = gbfs
