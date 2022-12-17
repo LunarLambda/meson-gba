@@ -1,0 +1,8 @@
+[wrap-git]
+url = https://github.com/sverx/GBAdv
+revision = master
+depth = 1
+patch_directory = gbadv
+
+[provide]
+dependency_names = gbadv
