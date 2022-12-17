@@ -21,6 +21,7 @@ in which case, please open an issue about it.
 
 - Development Libraries:
     - [agbabi]
+    - [butano]
     - [gba-hpp]
     - [gbt-player]
     - [libfat]
@@ -143,6 +144,7 @@ This project is licensed under the zlib license.\
 See [LICENSE.txt](./LICENSE.txt) for more information.
 
 [agbabi]: https://github.com/felixjones/agbabi
+[butano]: https://github.com/GValiente/butano
 [devkitARM]: https://github.com/devkitPro/devkitarm-crtls
 [download]: https://github.com/LunarLambda/meson-gba/archive/refs/heads/main.zip
 [gba-hpp]: https://github.com/felixjones/gba-hpp
