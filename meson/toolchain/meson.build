@@ -40,3 +40,5 @@ if cc.find_library('c_nano', required: false).found()
 endif
 
 add_project_link_arguments(link_args, language: 'c')
+
+subdir('devkitarm')

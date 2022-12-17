@@ -76,7 +76,7 @@ following commands:
 
 ```sh
 meson subprojects download
-meson setup --cross-file=arm7tdmi.txt build
+meson setup --cross-file=gba.ini build
 ```
 
 If meson doesn't report any errors at this point, you should be able to compile
@@ -127,13 +127,12 @@ See the [Meson compiler API][meson-compiler] for other things you can test for.
 
 libgba and libtonc have special integration with devkitARM's version of newlib.
 The provided `meson.build` files will automatically detect availability and add
-appropriate compiler flags (C/C++). See `src/libgba-hello.c` for an example.
+appropriate compiler flags (C/C++). See `examples/src/libgba-hello.c` for an example.
 
 You can specify the following [Meson build options][meson-options]:
 
 Option                 | Type    | Description                       | Default
 -----------------------|---------|-----------------------------------|---------
-`dev`                  | boolean | Build all bundled subprojects     | false
 `agbabi:use_devkitarm` | boolean | Build for devkitARM's newlib      | false
 `libgba:dkp_console`   | feature | Enable devkitARM console features | auto
 `libtonc:dkp_console`  | feature | Enable devkitARM console features | auto
