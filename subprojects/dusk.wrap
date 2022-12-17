@@ -1,0 +1,8 @@
+[wrap-git]
+url = https://github.com/bmchtech/dusk
+revision = main
+depth = 1
+patch_directory = dusk
+
+[provide]
+dependency_names = dusk
