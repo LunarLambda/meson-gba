@@ -1,0 +1,8 @@
+[wrap-git]
+url = https://github.com/GValiente/butano
+revision = 13.1.1
+depth = 1
+patch_directory = butano
+
+[provide]
+dependency_names = butano
