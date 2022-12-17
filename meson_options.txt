@@ -1,1 +1,0 @@
-option('dev', type: 'boolean', value: false, description: 'Build all subprojects')
