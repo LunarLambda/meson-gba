@@ -1,0 +1,8 @@
+[wrap-git]
+url = https://github.com/felixjones/gba-plusplus
+revision = master
+depth = 1
+patch_directory = gba-plusplus
+
+[provide]
+dependency_names = gba-plusplus

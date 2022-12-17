@@ -24,6 +24,7 @@ in which case, please open an issue about it.
     - [butano]
     - [dusk]
     - [gba-hpp]
+    - [gba-plusplus]
     - [gbadv]
     - [gbt-player]
     - [libfat]
@@ -152,6 +153,7 @@ See [LICENSE.txt](./LICENSE.txt) for more information.
 [dusk]: https://github.com/bmchtech/dusk
 [gbadv]: https://github.com/sverx/GBAdv
 [gba-hpp]: https://github.com/felixjones/gba-hpp
+[gba-plusplus]: https://github.com/felixjones/gba-plusplus
 [gba-tools]: https://github.com/devkitPro/gba-tools
 [gbt-player]: https://github.com/AntonioND/gbt-player
 [general-tools]: https://github.com/devkitPro/general-tools
