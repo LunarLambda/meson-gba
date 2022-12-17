@@ -1,5 +1,3 @@
-subdir('template')
-
 dka_rt = dependency('devkitarm-rom-rt', required: false)
 
 # Figure out a suitable runtime library. Pick devkitARM if possible.
