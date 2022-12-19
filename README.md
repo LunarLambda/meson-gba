@@ -22,7 +22,10 @@ in which case, please open an issue about it.
 - Development Libraries:
     - [agbabi]
     - [butano]
+    - [dusk]
     - [gba-hpp]
+    - [gba-plusplus]
+    - [gbadv]
     - [gbt-player]
     - [libfat]
     - [libgba]
@@ -147,7 +150,10 @@ See [LICENSE.txt](./LICENSE.txt) for more information.
 [butano]: https://github.com/GValiente/butano
 [devkitARM]: https://github.com/devkitPro/devkitarm-crtls
 [download]: https://github.com/LunarLambda/meson-gba/archive/refs/heads/main.zip
+[dusk]: https://github.com/bmchtech/dusk
+[gbadv]: https://github.com/sverx/GBAdv
 [gba-hpp]: https://github.com/felixjones/gba-hpp
+[gba-plusplus]: https://github.com/felixjones/gba-plusplus
 [gba-tools]: https://github.com/devkitPro/gba-tools
 [gbt-player]: https://github.com/AntonioND/gbt-player
 [general-tools]: https://github.com/devkitPro/general-tools
