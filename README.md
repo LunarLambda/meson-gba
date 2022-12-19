@@ -27,6 +27,7 @@ in which case, please open an issue about it.
     - [gba-plusplus]
     - [gbadv]
     - [gbt-player]
+    - [heartlib]
     - [libfat]
     - [libgba]
     - [libseven]
@@ -157,6 +158,7 @@ See [LICENSE.txt](./LICENSE.txt) for more information.
 [gba-tools]: https://github.com/devkitPro/gba-tools
 [gbt-player]: https://github.com/AntonioND/gbt-player
 [general-tools]: https://github.com/devkitPro/general-tools
+[heartlib]: https://github.com/Sterophonick/HeartLib
 [libfat]: https://github.com/devkitPro/libfat
 [libgba]: https://github.com/devkitPro/libgba
 [libseven]: https://github.com/LunarLambda/sdk-seven
