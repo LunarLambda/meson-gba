@@ -24,8 +24,10 @@ in which case, please open an issue about it.
     - [butano]
     - [dusk]
     - [gba-hpp]
+    - [gba-link-connection]
     - [gba-plusplus]
     - [gbadv]
+    - [gbfs]
     - [gbt-player]
     - [libfat]
     - [libgba]
@@ -151,10 +153,12 @@ See [LICENSE.txt](./LICENSE.txt) for more information.
 [devkitARM]: https://github.com/devkitPro/devkitarm-crtls
 [download]: https://github.com/LunarLambda/meson-gba/archive/refs/heads/main.zip
 [dusk]: https://github.com/bmchtech/dusk
-[gbadv]: https://github.com/sverx/GBAdv
 [gba-hpp]: https://github.com/felixjones/gba-hpp
+[gba-link-connection]: https://github.com/rodri042/gba-link-connection
 [gba-plusplus]: https://github.com/felixjones/gba-plusplus
 [gba-tools]: https://github.com/devkitPro/gba-tools
+[gbadv]: https://github.com/sverx/GBAdv
+[gbfs]: https://pineight.com/gba/#gbfs
 [gbt-player]: https://github.com/AntonioND/gbt-player
 [general-tools]: https://github.com/devkitPro/general-tools
 [libfat]: https://github.com/devkitPro/libfat
