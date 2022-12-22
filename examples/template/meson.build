@@ -21,7 +21,7 @@ includes = [
 # -Wl,-Map causes the linker to output a 'link map', which can be useful for
 # debugging. If you don't know what that is, you can safely ignore it.
 link_args = [
-  '-Wl,-Map,@0@.map'.format(name),
+  f'-Wl,-Map,@name@.map',
 ]
 
 # Dependencies. gba-meson provides a large number of GBA development libraries.

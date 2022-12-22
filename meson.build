@@ -1,8 +1,8 @@
 # Change these to suit your project!
 project('gba-meson', 'c',
-  version: '0.1.0',
+  version: '0.2.0',
   license: 'Zlib',
-  meson_version: '>=0.56.0',
+  meson_version: '>=0.58.0',
   default_options: ['warning_level=2'])
 
 # Set up recommended compiler and linker flags, as well as devkitARM support.
