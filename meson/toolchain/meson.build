@@ -21,7 +21,7 @@ if get_option('debug')
   compile_args += '-gdwarf-4'
 endif
 
-add_global_arguments(compile_args, language: 'c')
+add_global_arguments(compile_args, language: ['c', 'cpp'])
 
 # List of link arguments.
 link_args = [
@@ -39,6 +39,14 @@ if cc.find_library('c_nano', required: false).found()
   link_args += '-specs=nano.specs'
 endif
 
-add_project_link_arguments(link_args, language: 'c')
+add_project_link_arguments(link_args, language: ['c', 'cpp'])
 
-subdir('devkitarm')
+if have_devkitarm
+  dka_rom_rt = declare_dependency(link_args: ['-specs=gba.specs'])
+  dka_mb_rt = declare_dependency(link_args: ['-specs=gba_mb.specs'])
+  dka_er_rt = declare_dependency(link_args: ['-specs=gba_er.specs'])
+
+  meson.override_dependency('dka-rom-rt', dka_rom_rt)
+  meson.override_dependency('dka-multiboot-rt', dka_mb_rt)
+  meson.override_dependency('dka-ereader-rt', dka_er_rt)
+endif
