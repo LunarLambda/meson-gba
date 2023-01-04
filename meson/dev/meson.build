@@ -5,11 +5,9 @@ subprojects = [
   'gba-hpp',
   'gba-link-connection',
   'gba-plusplus',
-  'gba-tools',
   'gbadv',
   'gbfs',
   'gbt-player',
-  'general-tools',
   'heartlib',
   'libgba',
   'libtonc',
@@ -20,6 +18,12 @@ subprojects = [
   'sdk-seven',
   'superfamiconv',
 ]
+
+if build_machine.system() == 'windows'
+  warning('some subprojects do not currently compile under windows')
+else
+  subprojects += ['gba-tools', 'general-tools']
+endif
 
 if have_devkitarm
   subprojects += ['libfat']
