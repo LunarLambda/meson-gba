@@ -1,7 +1,8 @@
-[wrap-git]
-url = https://github.com/devkitPro/maxmod
-revision = master
-depth = 1
+[wrap-file]
+source_url = https://github.com/devkitPro/maxmod/archive/refs/tags/v1.0.15.tar.gz
+source_filename = maxmod.tar.gz
+source_hash = c7310aea8adf0c9ea33223289119a406e31294959c67904449a9313b9cfd30f5
+directory = maxmod-1.0.15
 patch_directory = maxmod
 
 [provide]

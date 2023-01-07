@@ -4,7 +4,6 @@ subprojects = [
   'dusk',
   'gba-hpp',
   'gba-link-connection',
-  'gba-plusplus',
   'gbadv',
   'gbfs',
   'gbt-player',

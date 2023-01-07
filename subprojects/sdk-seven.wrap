@@ -1,7 +1,8 @@
-[wrap-git]
-url = https://github.com/LunarLambda/sdk-seven
-revision = main
-depth = 1
+[wrap-file]
+source_url = https://github.com/LunarLambda/sdk-seven/archive/refs/tags/v0.8.5.tar.gz
+source_filename = sdk-seven.tar.gz
+source_hash = 47edd5c6cefe4379106a5289cc8df9650d585e88bc24e95998659b72a1a49c4d
+directory = sdk-seven-0.8.5
 
 [provide]
 dependency_names = libseven, minrt, minrt-multiboot

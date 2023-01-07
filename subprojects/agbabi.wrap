@@ -1,7 +1,8 @@
-[wrap-git]
-url = https://github.com/felixjones/agbabi
-revision = 2.0
-depth = 1
+[wrap-file]
+source_url = https://github.com/felixjones/agbabi/archive/08b012a5db9478254cddc651566af62c4c0f7c39.tar.gz
+source_filename = agbabi.tar.gz
+source_hash = fc9b35dacca79cf19af2bb91ea61762b7bd6498ffc1d1dbcecf6b6a377bd43cd
+directory = agbabi-08b012a5db9478254cddc651566af62c4c0f7c39
 
 [provide]
 dependency_names = agbabi

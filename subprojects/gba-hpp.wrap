@@ -1,7 +1,8 @@
-[wrap-git]
-url = https://github.com/felixjones/gba-hpp
-revision = main
-depth = 1
+[wrap-file]
+source_url = https://github.com/felixjones/gba-hpp/archive/405f379e7fee311815c7f7a4a6339c38a9e24c8f.tar.gz
+source_filename = gba-hpp.tar.gz
+source_hash = 2f191c88d489f558d5de8e72a5407a5f80c86f62f04578a99580c7b133ae31b9
+directory = gba-hpp-405f379e7fee311815c7f7a4a6339c38a9e24c8f
 patch_directory = gba-hpp
 
 [provide]

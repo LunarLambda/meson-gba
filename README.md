@@ -24,7 +24,6 @@ in which case, please open an issue about it.
     - [butano]
     - [dusk]
     - [gba-hpp]
-    - [gba-plusplus]
     - [gbadv]
     - [gbt-player]
     - [heartlib]
