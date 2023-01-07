@@ -24,7 +24,6 @@ in which case, please open an issue about it.
     - [butano]
     - [dusk]
     - [gba-hpp]
-    - [gba-plusplus]
     - [gbadv]
     - [gbt-player]
     - [heartlib]
@@ -69,7 +68,6 @@ As all the libraries and tools are compiled from source, the only things you
 need to have installed and in your PATH are:
 
 - meson
-- git (for downloading the subprojects)
 - A compiler for your system (`cl.exe`, `gcc`, etc.)
 - A compiler for the GBA (`arm-none-eabi-gcc`)
 
@@ -104,7 +102,7 @@ The built ROMs (.elf, .gba) will be in the `build` directory.
 For development on Windows, the easiest method is to use MSYS2, either using
 the [official installer][msys2-official], or the [devkitPro installer][msys2-dkp].
 
-Install meson, git, and gcc with `pacman -Syu meson git gcc`, and if using
+Install meson and gcc with `pacman -Syu meson gcc`, and if using
 the official installer, install `mingw-w64-x86_64-arm-none-eabi-toolchain` too.
 
 ## Compiler Support
@@ -132,7 +130,7 @@ See the [Meson compiler API][meson-compiler] for other things you can test for.
 
 libgba and libtonc have special integration with devkitARM's version of newlib.
 The provided `meson.build` files will automatically detect availability and add
-appropriate compiler flags (C/C++). See `examples/src/libgba-hello.c` for an example.
+appropriate compiler flags (C/C++). See `examples/libgba-helloworld/src/main.c` for an example.
 
 You can specify the following [Meson build options][meson-options]:
 
@@ -154,7 +152,6 @@ See [LICENSE.txt](./LICENSE.txt) for more information.
 [dusk]: https://github.com/bmchtech/dusk
 [gbadv]: https://github.com/sverx/GBAdv
 [gba-hpp]: https://github.com/felixjones/gba-hpp
-[gba-plusplus]: https://github.com/felixjones/gba-plusplus
 [gba-tools]: https://github.com/devkitPro/gba-tools
 [gbt-player]: https://github.com/AntonioND/gbt-player
 [general-tools]: https://github.com/devkitPro/general-tools

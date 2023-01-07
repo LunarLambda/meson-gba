@@ -1,9 +1,9 @@
-project('superfamiconv', 'cpp',
+project('superfamiconv', 'c', 'cpp',
   version: '0.9.2',
   license: 'MIT',
   default_options: ['warning_level=2', 'cpp_std=c++14'])
 
-cpp = meson.get_compiler('cpp')
+cpp = meson.get_compiler('cpp', native: true)
 
 sources = [
   'include/fmt/format.cpp',
@@ -26,7 +26,7 @@ options = []
 
 # if(MSVC)
 if cpp.get_id() == 'msvc'
-  sources  += 'src/getoptw/getopw.c'
+  sources  += 'include/getoptw/getoptw.c'
   cpp_args += '-DNOMINMAX'
   options  += 'b_vscrt=static_from_buildtype'
 else

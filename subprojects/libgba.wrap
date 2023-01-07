@@ -1,7 +1,8 @@
-[wrap-git]
-url = https://github.com/gbadev-org/libgba
-revision = master
-depth = 1
+[wrap-file]
+source_url = https://github.com/gbadev-org/libgba/archive/0d46fc9f8644126bf869cf33637b32b20cd99c28.tar.gz
+source_filename = libgba.tar.gz
+source_hash = 43b5653844bbec288302b3cbd98dad45cef47c9ddbc82d06f712ec3dc1bfb065
+directory = libgba-0d46fc9f8644126bf869cf33637b32b20cd99c28
 patch_directory = libgba
 
 [provide]

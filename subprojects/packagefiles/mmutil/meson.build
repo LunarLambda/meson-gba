@@ -29,10 +29,19 @@ includes = ['source']
 
 pkgver = 'PACKAGE_VERSION="@0@"'.format(meson.project_version())
 
+args = ['-D' + pkgver]
+
+if cc.get_id() != 'msvc'
+  args += ['-Wno-multichar']
+else
+  args += ['/source-charset:.437']
+endif
+
+
 mmutil = executable('mmutil',
   sources,
   include_directories: includes,
-  c_args: ['-D' + pkgver, '-Wno-multichar'],
+  c_args: args,
   dependencies: m_dep,
   native: true)
 

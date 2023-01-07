@@ -1,7 +1,8 @@
-[wrap-git]
-url = https://github.com/sverx/GBAdv
-revision = master
-depth = 1
+[wrap-file]
+source_url = https://github.com/sverx/GBAdv/archive/804fcdd5ff20d7d3de5f3a03fb153c780c5d8238.tar.gz
+source_filename = gbadv.tar.gz
+source_hash = 5d8229470de4b7bdac0df25c94b18dbdcb113afd7f8646db2e38e2cd34e72597
+directory = GBAdv-804fcdd5ff20d7d3de5f3a03fb153c780c5d8238
 patch_directory = gbadv
 
 [provide]

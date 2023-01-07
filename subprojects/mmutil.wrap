@@ -1,7 +1,8 @@
-[wrap-git]
-url = https://github.com/devkitPro/mmutil
-revision = master
-depth = 1
+[wrap-file]
+source_url = https://github.com/devkitPro/mmutil/archive/refs/tags/v1.9.2.tar.gz
+source_filename = mmutil.tar.gz
+source_hash = 3551f23a917a33be1660d5dcd031a50c5843b5020a5aff5129db567b4f385300
+directory = mmutil-1.9.2
 patch_directory = mmutil
 
 [provide]
