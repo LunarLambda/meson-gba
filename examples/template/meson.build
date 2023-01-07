@@ -1,9 +1,3 @@
-# Get the 'makerom' program from sdk-seven.
-#
-# Normally you should be using find_program(...) instead, but sdk-seven
-# currently requires this workaround.
-makerom = subproject('sdk-seven').get_variable('makerom')
-
 # The name of your project.
 name = 'template'
 
@@ -39,6 +33,9 @@ elf = executable(
   link_args: link_args,
   dependencies: dependencies,
   name_suffix: 'elf')
+
+# Get the 'makerom' program from sdk-seven.
+makerom = find_program('makerom')
 
 # Build a raw GBA ROM file from your ELF file.
 rom = custom_target(
