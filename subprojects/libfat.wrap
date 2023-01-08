@@ -1,8 +1,6 @@
-[wrap-file]
-source_url = https://github.com/devkitPro/libfat/archive/69543f058c10c90cddf3b3243819fa1953e3ea9e.tar.gz
-source_filename = libfat.tar.gz
-source_hash = 755252493a0b535a7eff35fcc142e63016e8872bbde3ded276f810290c5f6607
-directory = libfat-69543f058c10c90cddf3b3243819fa1953e3ea9e
+[wrap-git]
+url = https://github.com/devkitPro/libfat
+revision = 69543f058c10c90cddf3b3243819fa1953e3ea9e
 patch_directory = libfat
 
 [provide]

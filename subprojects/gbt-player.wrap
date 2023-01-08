@@ -1,8 +1,6 @@
-[wrap-file]
-source_url = https://github.com/AntonioND/gbt-player/archive/refs/tags/v4.4.1.tar.gz
-source_filename = gbt-player.tar.gz
-source_hash = 75360d821a155b356c089078f4a263f44617ccb9e4a3d679c3dad6b0e0c083fd
-directory = gbt-player-4.4.1
+[wrap-git]
+url = https://github.com/AntonioND/gbt-player
+revision = v4.4.1
 patch_directory = gbt-player
 
 [provide]

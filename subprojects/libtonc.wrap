@@ -1,8 +1,6 @@
-[wrap-file]
-source_url = https://github.com/gbadev-org/libtonc/archive/cc862ceb8b7151f1125b6ce629925be6e54827c3.tar.gz
-source_filename = libtonc.tar.gz
-source_hash = 118bf13be9f5d16a5487ace0083ba273bc5964b79971a6b7c49cc8b62e056a5f
-directory = libtonc-cc862ceb8b7151f1125b6ce629925be6e54827c3
+[wrap-git]
+url = https://github.com/gbadev-org/libtonc
+revision = cc862ceb8b7151f1125b6ce629925be6e54827c3
 patch_directory = libtonc
 
 [provide]

@@ -58,6 +58,7 @@ As all the libraries and tools are compiled from source, the only things you
 need to have installed and in your PATH are:
 
 - meson
+- git
 - A compiler for your system (`cl.exe`, `gcc`, etc.)
 - A compiler for the GBA (`arm-none-eabi-gcc`)
 
@@ -92,8 +93,17 @@ The built ROMs (.elf, .gba) will be in the `build` directory.
 For development on Windows, the easiest method is to use MSYS2, either using
 the [official installer][msys2-official], or the [devkitPro installer][msys2-dkp].
 
-Install meson and gcc with `pacman -Syu meson gcc`, and if using
-the official installer, install `mingw-w64-x86_64-arm-none-eabi-toolchain` too.
+Install everything needed like so:
+
+```sh
+pacman -S mingw-w64-ucrt-x86_64-meson git mingw-w64-ucrt-x86_64-gcc
+```
+
+And if using the non-devkitPro compiler:
+
+```sh
+pacman -S mingw-w64-ucrt-x86_64-arm-none-eabi-toolchain
+```
 
 ## Compiler Support
 
@@ -142,9 +152,7 @@ See [LICENSE.txt](./LICENSE.txt) for more information.
 [dusk]: https://github.com/bmchtech/dusk
 [gbadv]: https://github.com/sverx/GBAdv
 [gba-hpp]: https://github.com/felixjones/gba-hpp
-[gba-tools]: https://github.com/devkitPro/gba-tools
 [gbt-player]: https://github.com/AntonioND/gbt-player
-[general-tools]: https://github.com/devkitPro/general-tools
 [heartlib]: https://github.com/Sterophonick/HeartLib
 [libfat]: https://github.com/devkitPro/libfat
 [libgba]: https://github.com/devkitPro/libgba

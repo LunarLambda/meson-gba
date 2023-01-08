@@ -1,8 +1,6 @@
-[wrap-file]
-source_url = https://github.com/GValiente/butano/archive/refs/tags/13.1.1.tar.gz
-source_filename = butano.tar.gz
-source_hash = bab1ed6ce8b078c54c803cc9152dd9c9122b099327c9546a413b914205d0b337
-directory = butano-13.1.1
+[wrap-git]
+url = https://github.com/GValiente/butano
+revision = 13.1.1
 patch_directory = butano
 
 [provide]
