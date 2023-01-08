@@ -39,18 +39,6 @@ in which case, please open an issue about it.
     - [libsysgba]
     - [minrt]
 - Build Tools:
-    - From [general-tools]:
-        - bin2s
-        - bmp2bin
-        - padbin
-        - raw2c
-    - From [gba-tools]:
-        - gbafix
-        - gbalzss
-        - gbfs
-        - insgbfs
-        - lsgbfs
-        - ungbfs
     - From [gbt-player]:
         - mod2gbt
         - s3m2gbt
@@ -58,6 +46,8 @@ in which case, please open an issue about it.
     - From [mmutil]:
         - mmutil
     - From [sdk-seven]:
+        - gbafix-py
+        - bin2s-py
         - makerom
     - From [SuperFamiconv]:
         - superfamiconv

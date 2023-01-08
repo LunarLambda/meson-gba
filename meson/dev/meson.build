@@ -18,12 +18,6 @@ subprojects = [
   'superfamiconv',
 ]
 
-if build_machine.system() == 'windows'
-  warning('some subprojects do not currently compile under windows')
-else
-  subprojects += ['gba-tools', 'general-tools']
-endif
-
 if have_devkitarm
   subprojects += ['libfat']
 endif
