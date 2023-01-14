@@ -1,5 +1,6 @@
 project('libfat', 'c',
   version: '1.1.5',
+  meson_version: '>=0.54.0',
   default_options: ['warning_level=1'])
 
 libgba_dep = dependency('libgba')

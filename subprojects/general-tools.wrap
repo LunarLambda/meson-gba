@@ -1,9 +1,0 @@
-[wrap-file]
-source_url = https://github.com/devkitPro/general-tools/archive/refs/tags/v1.2.0.tar.gz
-source_filename = general-tools.tar.gz
-source_hash = 8a7ee4e23378a94bdd0b94a89442075ef1af6fa6aa01cdb252a9ebaf4173e8e1
-directory = general-tools-1.2.0
-patch_directory = general-tools
-
-[provide]
-program_names = bin2s, bmp2bin, padbin, raw2c

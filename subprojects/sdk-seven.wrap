@@ -1,9 +1,7 @@
-[wrap-file]
-source_url = https://github.com/LunarLambda/sdk-seven/archive/refs/tags/v0.9.0.tar.gz
-source_filename = sdk-seven.tar.gz
-source_hash = 25b4819ca01bba06d6407afc789cf4cc534d139f2ce24d3db448a24653690645
-directory = sdk-seven-0.9.0
+[wrap-git]
+url = https://github.com/LunarLambda/sdk-seven
+revision = v0.9.1
 
 [provide]
 dependency_names = libseven, minrt, minrt-multiboot
-program_names = makerom
+program_names = makerom, gbafix-py, bin2s-py

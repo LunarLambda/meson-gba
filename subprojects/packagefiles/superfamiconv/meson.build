@@ -1,6 +1,7 @@
 project('superfamiconv', 'c', 'cpp',
   version: '0.9.2',
   license: 'MIT',
+  meson_version: '>=0.50.0',
   default_options: ['warning_level=2', 'cpp_std=c++14'])
 
 cpp = meson.get_compiler('cpp', native: true)

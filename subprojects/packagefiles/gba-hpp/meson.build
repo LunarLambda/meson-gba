@@ -1,6 +1,7 @@
 project('gba-hpp', 'cpp',
   version: '4.0.0',
   license: 'Zlib',
+  meson_version: '>=0.54.0',
   default_options: ['cpp_std=c++20'])
 
 gba_hpp_dep = declare_dependency(

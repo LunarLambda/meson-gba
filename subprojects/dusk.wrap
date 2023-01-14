@@ -1,8 +1,6 @@
-[wrap-file]
-source_url = https://github.com/bmchtech/dusk/archive/131f14ea65799a8c4ff2ff43d0c9978b3d7fda2a.tar.gz
-source_filename = dusk.tar.gz
-source_hash = afa78530cfa80bf2e3d3dac5d99f8d3d6e2f712bb126e79bde7d81d77d5c5f8f
-directory = dusk-131f14ea65799a8c4ff2ff43d0c9978b3d7fda2a
+[wrap-git]
+url = https://github.com/bmchtech/dusk
+revision = 131f14ea65799a8c4ff2ff43d0c9978b3d7fda2a
 patch_directory = dusk
 
 [provide]

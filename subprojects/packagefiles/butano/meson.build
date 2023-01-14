@@ -1,6 +1,7 @@
 project('butano', 'c', 'cpp',
   version: '13.1.1',
   license: 'Zlib',
+  meson_version: '>=0.54.0',
   default_options: [
     'warning_level=2',
     'cpp_std=c++20',

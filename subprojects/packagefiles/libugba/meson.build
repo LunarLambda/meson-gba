@@ -1,6 +1,7 @@
 project('libugba', 'c',
   version: '0.3.0',
   license: 'MIT',
+  meson_version: '>=0.54.0',
   default_options: ['warning_level=2', 'c_std=c11'])
 
 sources_sysgba = [

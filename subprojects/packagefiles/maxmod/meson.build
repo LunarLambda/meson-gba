@@ -1,5 +1,6 @@
 project('maxmod', 'c',
   version: '1.0.12',
+  meson_version: '>=0.54.0',
   default_options: ['warning_level=0'])
 
 sources = [

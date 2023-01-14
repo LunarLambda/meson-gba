@@ -1,7 +1,7 @@
 project('gba-link-connection', 'cpp',
   version: '3.0.0',
   license: 'MIT',
-  default_options: [])
+  meson_version: '>=0.54.0')
 
 gba_link_connection_dep = declare_dependency(
   include_directories: ['lib'])

@@ -1,4 +1,5 @@
-project('posprintf', 'c')
+project('posprintf', 'c',
+  meson_version: '>=0.54.0')
 
 posprintf = static_library('posprintf', 'posprintf/posprintf.S')
 

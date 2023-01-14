@@ -1,6 +1,7 @@
 project('libtonc', 'c',
   version: '1.4.3',
   license: 'MIT',
+  meson_version: '>=0.59.0',
   default_options: ['warning_level=1', 'c_std=none'])
 
 sources_asm = [

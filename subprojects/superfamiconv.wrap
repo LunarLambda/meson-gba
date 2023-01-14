@@ -1,8 +1,6 @@
-[wrap-file]
-source_url = https://github.com/Optiroc/SuperFamiconv/archive/a5027f3c4f1e3e16f868971d343b85a9bf424f96.tar.gz
-source_filename = superfamiconv.tar.gz
-source_hash = d4e29eeb4fd313f7feabb318e4175bd91406639bde8837cdcfa675ece20ce826
-directory = SuperFamiconv-a5027f3c4f1e3e16f868971d343b85a9bf424f96
+[wrap-git]
+url = https://github.com/Optiroc/SuperFamiconv
+revision = a5027f3c4f1e3e16f868971d343b85a9bf424f96
 patch_directory = superfamiconv
 
 [provide]

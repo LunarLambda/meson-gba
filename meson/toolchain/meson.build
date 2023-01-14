@@ -29,8 +29,10 @@ link_args = [
   '-Wl,--gc-sections',
 ]
 
-# Newer binutils add warnings we don't care about
-if find_program('ld', version: '>=2.39', required: false).found()
+# Newer binutils add warnings we don't care about.
+ld_h = run_command(cc, '-Wl,--help', capture: true, check: false)
+
+if ld_h.stdout().contains('--no-warn-rwx-segments')
   link_args += '-Wl,--no-warn-rwx-segments'
 endif
 

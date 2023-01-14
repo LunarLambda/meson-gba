@@ -1,6 +1,7 @@
 project('dusk', 'c',
   version: '0.1.7',
   license: 'GPL-3.0-or-later',
+  meson_version: '>=0.54.0',
   default_options: ['warning_level=1', 'c_std=none'])
 
 libtonc = dependency('libtonc')
