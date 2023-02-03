@@ -72,6 +72,15 @@ meson subprojects download
 meson setup --cross-file=gba.ini build
 ```
 
+If you're using devkitPro, install meson (not mingw-\*-meson),
+then run
+
+```
+meson setup --cross-file=devkitarm.ini build
+```
+
+For the setup step.
+
 If meson doesn't report any errors at this point, you should be able to compile
 the project with
 
