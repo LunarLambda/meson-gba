@@ -9,4 +9,5 @@ project('gba-meson', 'c',
 subdir('meson/toolchain')
 
 # Build the project.
+#
 subdir('game')
