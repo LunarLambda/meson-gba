@@ -125,7 +125,7 @@ If you wish to detect the devkitARM compiler specifically:
 ```meson
 cc = meson.get_compiler('c')
 
-output = run_command(cc, '--version', capture: true)
+output = run_command(cc, '--version', capture: true, check: false)
 
 if output.stdout().to_lower().contains('devkitarm')
     message('we have devkitARM!')
@@ -133,20 +133,6 @@ endif
 ```
 
 See the [Meson compiler API][meson-compiler] for other things you can test for.
-
-## Configurable Features
-
-libgba and libtonc have special integration with devkitARM's version of newlib.
-The provided `meson.build` files will automatically detect availability and add
-appropriate compiler flags (C/C++). See `examples/libgba-helloworld/src/main.c` for an example.
-
-You can specify the following [Meson build options][meson-options]:
-
-Option                 | Type    | Description                       | Default
------------------------|---------|-----------------------------------|---------
-`agbabi:use_devkitarm` | boolean | Build for devkitARM's newlib      | false
-`libgba:dkp_console`   | feature | Enable devkitARM console features | auto
-`libtonc:dkp_console`  | feature | Enable devkitARM console features | auto
 
 ## License
 
