@@ -1,5 +1,5 @@
 # The name of your project.
-name = 'template'
+name = 'meson-gba-template'
 
 # All of the source files used by your project.
 sources = [
