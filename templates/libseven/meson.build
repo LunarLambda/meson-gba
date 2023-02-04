@@ -15,4 +15,4 @@ custom_target(
   input: elf,
   output: '@BASENAME@.gba',
   command: [makerom, '@INPUT@', '@OUTPUT@'],
-  build_by_default)
+  build_by_default: true)
