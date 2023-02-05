@@ -1,6 +1,6 @@
 [wrap-git]
 url = https://github.com/felixjones/agbabi
-revision = 08b012a5db9478254cddc651566af62c4c0f7c39
+revision = 981cfaf14c4ab016916126c9d0d7d9710ae6444e
 
 [provide]
 dependency_names = agbabi

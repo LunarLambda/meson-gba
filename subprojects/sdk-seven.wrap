@@ -1,6 +1,6 @@
 [wrap-git]
 url = https://github.com/LunarLambda/sdk-seven
-revision = v0.15.1
+revision = v0.18.0
 
 [provide]
 dependency_names = libseven, minrt, minrt-multiboot
