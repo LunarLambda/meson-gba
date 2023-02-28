@@ -73,19 +73,19 @@ following command to generate a suitable cross file:
 Windows, using Powershell (not recommended):
 
 ```powershell
-$file = Get-Content -Path gba.ini; $file[1] = "path = '$Env:DEVKITARM/bin/'"; Set-Content -Path dkarm.ini -Value $file
+$file = Get-Content -Path gba.ini; $file[1] = "path = '$Env:DEVKITARM/bin'"; Set-Content -Path dkarm.ini -Value $file
 ```
 
 Windows, using MSYS2:
 
 ```sh
-sed "2s?.*?path = '$(cygpath -m $DEVKITARM)/bin/'?" gba.ini > dkarm.ini
+sed "2s?.*?path = '$(cygpath -m $DEVKITARM/bin)'?" gba.ini > dkarm.ini
 ```
 
 Linux / MacOS:
 
 ```sh
-sed "2s?.*?path = '$DEVKITARM/bin/'?" gba.ini > dkarm.ini
+sed "2s?.*?path = '$DEVKITARM/bin'?" gba.ini > dkarm.ini
 ```
 
 Then run
