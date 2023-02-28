@@ -73,7 +73,7 @@ following command to generate a suitable cross file:
 Windows, using Powershell (not recommended):
 
 ```powershell
-$file = Get-Content -Path gba.ini; $file[1] = "path = '$Env:DEVKITARM/bin'"; Set-Content -Path dkarm.ini -Value $file
+$f = gc gba.ini; $f[1] = "path = '$Env:DEVKITARM/bin'"; sc dkarm.ini $f
 ```
 
 Windows, using MSYS2:
@@ -96,11 +96,7 @@ meson setup --cross-file=dkarm.ini build
 
 for the setup step.
 
-```sh
-meson compile -C build
-```
-
-or
+To build, run:
 
 ```sh
 ninja -C build
