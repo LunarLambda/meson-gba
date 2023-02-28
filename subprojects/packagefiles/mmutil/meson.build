@@ -34,6 +34,7 @@ args = ['-D' + pkgver]
 
 if cc.get_id() != 'msvc'
   args += ['-Wno-multichar']
+endif
 
 mmutil = executable('mmutil',
   sources,
