@@ -30,9 +30,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "79aa0fce08a77cf8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "project_setup.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -98,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "install_windows.md",
+                "file": "project_setup.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "install_windows.md",
+                "file": "project_setup.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "install_windows.md"
+                "file": "project_setup.md"
               }
             }
           }
@@ -159,8 +171,9 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "577b244ce567ea8c",
+  "active": "4984aef08473fc7d",
   "lastOpenFiles": [
+    "build/img/first.png",
     "build/img",
     "build/book.toml",
     "build/elasticlunr.min.js",
@@ -171,12 +184,13 @@
     "build/fonts/source-code-pro-v11-all-charsets-500.woff2",
     "build/fonts/open-sans-v17-all-charsets-800italic.woff2",
     "build/fonts/open-sans-v17-all-charsets-800.woff2",
-    "build/fonts/open-sans-v17-all-charsets-700italic.woff2",
     "build/FontAwesome/fonts/fontawesome-webfont.svg",
-    "build/favicon.svg",
-    "build/favicon.png",
-    "SUMMARY.md",
+    "img/first.png",
+    "README.md",
     "install_windows.md",
-    "README.md"
+    "project_setup.md",
+    "SUMMARY.md",
+    "build/favicon.svg",
+    "build/favicon.png"
   ]
 }

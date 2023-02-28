@@ -1,13 +1,12 @@
 # Installation (Windows)
 
-Before you can get started, there is a few things you need to install.
-
-Mainly, we need:
+Before we can get started, there is a few things we need to install. Mainly, we need:
 
 - The meson build system
 - The git version control system
 - A compiler for your machine
 - A compiler for the GBA
+- (optional) [An emulator for running your game](./emulators.md)
 
 Compiling software on Windows has always been notoriously difficult to set up due to every program kind of arbitrarily picking its own spot to hang out in, and it can be quite tricky to get all of them to talk to each other.
 
