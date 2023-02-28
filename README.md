@@ -79,13 +79,13 @@ $f = gc gba.ini; $f[1] = "path = '$Env:DEVKITARM/bin'"; sc dkarm.ini $f
 Windows, using MSYS2:
 
 ```sh
-sed "2s?.*?path = '$(cygpath -m $DEVKITARM/bin)'?" gba.ini > dkarm.ini
+sed "2cpath = '$(cygpath -m $DEVKITARM/bin)'" gba.ini > dkarm.ini
 ```
 
 Linux / MacOS:
 
 ```sh
-sed "2s?.*?path = '$DEVKITARM/bin'?" gba.ini > dkarm.ini
+sed "2cpath = '$DEVKITARM/bin'" gba.ini > dkarm.ini
 ```
 
 Then run
