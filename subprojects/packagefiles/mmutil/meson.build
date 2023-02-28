@@ -1,5 +1,5 @@
 project('mmutil', 'c',
-  version: '1.9.1',
+  version: '1.10.1',
   meson_version: '>=0.50.0',
   default_options: ['warning_level=0'])
 
@@ -34,10 +34,6 @@ args = ['-D' + pkgver]
 
 if cc.get_id() != 'msvc'
   args += ['-Wno-multichar']
-else
-  args += ['/source-charset:.437']
-endif
-
 
 mmutil = executable('mmutil',
   sources,

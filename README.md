@@ -5,17 +5,10 @@ Advance libraries and tools.
 
 ## Development Notice
 
-This project is still very much in alpha. Things are still messy, particularly
-around differences between devkitARM and other ARM toolchains. Things might
-break unexpectedly, and things are developed with the latest versions of
-meson and GCC/devkitARM in mind.
-
-If things don't work, make sure things are up to date, and check the
-[Configurable Features](#configurable-features) section for settings you may
-need to adjust.
-
-If a library/tool fails to compile at all, it's probably been updated upstream,
-in which case, please open an issue about it.
+This project is still very much in alpha. Things are still messy, but are
+continuously being updated and improved. Things might break unexpectedly,
+and things are developed with the latest versions of meson and GCC/devkitARM
+in mind, so make sure your tools are as up-to-date as can be.
 
 ## What's Included
 
@@ -26,7 +19,7 @@ in which case, please open an issue about it.
     - [gba-hpp]
     - [gbt-player]
     - [heartlib]
-    - [libfat]
+    - [libfat] \(requires devkitARM\)
     - [libgba]
     - [libseven]
     - [libtonc]
@@ -42,6 +35,8 @@ in which case, please open an issue about it.
         - mod2gbt
         - s3m2gbt
         - s3msplit
+    - From [grit] \(requires FreeImage\):
+        - grit
     - From [mmutil]:
         - mmutil
     - From [sdk-seven]:
@@ -56,7 +51,7 @@ in which case, please open an issue about it.
 As all the libraries and tools are compiled from source, the only things you
 need to have installed and in your PATH are:
 
-- meson (at least version 0.59.0)
+- meson (at least version 0.60.0, ideally 1.0.0 or later)
 - git
 - A compiler for your system (`cl.exe`, `gcc`, etc.)
 - A compiler for the GBA (`arm-none-eabi-gcc`)
@@ -72,17 +67,34 @@ meson subprojects download
 meson setup --cross-file=gba.ini build
 ```
 
-If you're using devkitPro, install meson (not mingw-\*-meson),
-then run
+If you want to use devkitPro (for example, if you want to use libfat), use the
+following command to generate a suitable cross file:
 
+Windows, using Powershell (not recommended):
+
+```powershell
+$file = Get-Content -Path gba.ini; $file[1] = "path = '$Env:DEVKITARM/bin/'"; Set-Content -Path dkarm.ini -Value $file
 ```
-meson setup --cross-file=devkitarm.ini build
+
+Windows, using MSYS2:
+
+```sh
+sed "2s?.*?path = '$(cygpath -m $DEVKITARM)/bin/'?" gba.ini > dkarm.ini
 ```
 
-For the setup step.
+Linux / MacOS:
 
-If meson doesn't report any errors at this point, you should be able to compile
-the project with
+```sh
+sed "2s?.*?path = '$DEVKITARM/bin/'?" gba.ini > dkarm.ini
+```
+
+Then run
+
+```sh
+meson setup --cross-file=dkarm.ini build
+```
+
+for the setup step.
 
 ```sh
 meson compile -C build
@@ -107,7 +119,7 @@ Install everything needed like so:
 pacman -S mingw-w64-ucrt-x86_64-meson git mingw-w64-ucrt-x86_64-gcc
 ```
 
-And if using the non-devkitPro compiler:
+And if using the non-devkitPro compiler (recommended!):
 
 ```sh
 pacman -S mingw-w64-ucrt-x86_64-arm-none-eabi-toolchain
@@ -147,6 +159,7 @@ See [LICENSE.txt](./LICENSE.txt) for more information.
 [gbadv]: https://github.com/sverx/GBAdv
 [gba-hpp]: https://github.com/felixjones/gba-hpp
 [gbt-player]: https://github.com/AntonioND/gbt-player
+[grit]: https://github.com/devkitPro/grit
 [heartlib]: https://github.com/Sterophonick/HeartLib
 [libfat]: https://github.com/devkitPro/libfat
 [libgba]: https://github.com/devkitPro/libgba
