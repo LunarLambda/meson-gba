@@ -12,5 +12,4 @@ channel in the [gbadev Discord](https://discord.io/gbadev) if you need help.
 
 The **meson-gba** repository is set up such that the main branch acts as the
 project template. Download dependencies with `meson subprojects download`,
-and modify **meson.build** to suit your projects. Check out the
-**examples/template** directory for some basic build code with comments.
+and modify **game/meson.build** to suit your projects.
