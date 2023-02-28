@@ -1,7 +1,7 @@
 # Introduction
 
 **meson-gba** is a toolkit for developing Game Boy Advance homebrew using the
-[Meson][meson] build system. It aims to make building homebrew much simpler and
+[Meson](https://mesonbuild.com) build system. It aims to make building homebrew much simpler and
 provides easy access to many different libraries and tools, making transitioning
 from the existing Makefile-based setups easy.
 

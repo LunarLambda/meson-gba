@@ -47,7 +47,7 @@ gba-meson 0.5.0
     Cross files: gba.ini
 ```
 
-[sdk-seven][https://github.com/LunarLambda/sdk-seven] is the project that provides all the necessary bits for building GBA programs (or ROMs).
+[sdk-seven](https://github.com/LunarLambda/sdk-seven) is the project that provides all the necessary bits for building GBA programs (or ROMs).
 
 Now, you should be able to compile everything:
 
