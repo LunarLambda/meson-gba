@@ -1,3 +1,4 @@
+# Based on https://github.com/devkitPro/grit/blob/v0.9.2/Makefile.am
 project('grit', 'cpp',
   version: '0.9.2',
   license: 'MIT',
@@ -7,11 +8,6 @@ project('grit', 'cpp',
 pkgver = 'PACKAGE_VERSION="@0@"'.format(meson.project_version())
 
 add_project_arguments(['-D' + pkgver], language: 'cpp', native: true)
-
-cc = meson.get_compiler('cpp', native: true)
-
-m_dep = cc.find_library('m', required: false)
-fi_dep = cc.find_library('freeimage')
 
 sources_libcldib = [
   'cldib/cldib_adjust.cpp',
@@ -42,18 +38,20 @@ sources_grit = [
   'srcgrit/grit_main.cpp',
 ]
 
-libcldib = static_library('cldib',
-  sources_libcldib,
+cc = meson.get_compiler('cpp', native: true)
+
+m_dep = cc.find_library('m', required: false)
+fi_dep = cc.find_library('freeimage')
+
+libcldib = static_library('cldib', sources_libcldib,
   include_directories: ['cldib'],
   native: true)
 
-libgrit = static_library('grit',
-  sources_libgrit,
+libgrit = static_library('grit', sources_libgrit,
   include_directories: ['cldib', 'libgrit'],
   native: true)
 
-grit = executable('grit',
-  sources_grit,
+grit = executable('grit', sources_grit,
   include_directories: ['cldib', 'libgrit', 'extlib'],
   link_with: [libcldib, libgrit],
   dependencies: [m_dep, fi_dep],

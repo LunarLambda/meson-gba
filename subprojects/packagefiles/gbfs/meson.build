@@ -1,7 +1,7 @@
 project('gbfs', 'c',
-  license: 'LGPL-2.0-or-later',
+  license: 'MIT', 
   meson_version: '>=0.54.0',
-  default_options: ['warning_level=1'])
+  default_options: ['warning_level=1', 'c_std=none'])
 
 gbfs = static_library('gbfs', 'libgbfs.c')
 

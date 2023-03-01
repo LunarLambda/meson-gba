@@ -1,3 +1,4 @@
+# Based on https://github.com/gbadev-org/libgba/blob/0d46fc9f8644126bf869cf33637b32b20cd99c28/Makefile#L12-L30
 project('libgba', 'c',
   version: '0.5.2',
   license: 'LGPL-2.0-or-later',
@@ -57,9 +58,7 @@ if console.allowed()
   compile_args += ['-DLIBGBA_HAS_CONSOLE']
 endif
 
-libgba = static_library(
-  'gba',
-  sources,
+libgba = static_library('gba', sources,
   include_directories: includes + ['src'],
   c_args: ['-Wno-switch', '-Wno-multichar', '-Wa,--warn'])
 

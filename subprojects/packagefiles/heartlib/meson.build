@@ -31,8 +31,7 @@ sources = [
 
 includes = ['include']
 
-heartlib = static_library('heart',
-  sources,
+heartlib = static_library('heart', sources,
   include_directories: includes)
 
 heartlib_dep = declare_dependency(

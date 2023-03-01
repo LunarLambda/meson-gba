@@ -1,7 +1,8 @@
+# Based on https://github.com/devkitPro/libfat/blob/69543f058c10c90cddf3b3243819fa1953e3ea9e/gba/Makefile
 project('libfat', 'c',
   version: '1.1.5',
   meson_version: '>=0.54.0',
-  default_options: ['warning_level=1'])
+  default_options: ['warning_level=1', 'c_std=none'])
 
 libgba_dep = dependency('libgba')
 
@@ -42,14 +43,13 @@ sources = [
 
 includes = ['include']
 
-libfat = static_library('fat',
-  sources,
+libfat = static_library('fat', sources,
   include_directories: includes,
-  c_args: ['-DGBA', '-fomit-frame-pointer', '-ffast-math'],
+  c_args: ['-DGBA'],
   dependencies: libgba_dep)
 
 libfat_dep = declare_dependency(
-  include_directories: ['include'],
+  include_directories: includes,
   link_with: libfat,
   sources: libfatversion_h)
 

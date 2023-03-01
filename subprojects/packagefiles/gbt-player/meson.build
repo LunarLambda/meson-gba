@@ -2,7 +2,7 @@ project('gbt-player', 'c',
   version: '4.4.1',
   license: 'MIT',
   meson_version: '>=0.54.0',
-  default_options: ['warning_level=1'])
+  default_options: ['warning_level=1', 'c_std=none'])
 
 gbt_player = static_library('gbt-player', 'gba/gbt_player/gbt_player.c')
 

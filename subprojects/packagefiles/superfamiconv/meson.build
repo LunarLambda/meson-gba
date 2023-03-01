@@ -1,10 +1,9 @@
+# Based on https://github.com/Optiroc/SuperFamiconv/blob/a5027f3c4f1e3e16f868971d343b85a9bf424f96/CMakeLists.txt
 project('superfamiconv', 'c', 'cpp',
   version: '0.9.2',
   license: 'MIT',
   meson_version: '>=0.50.0',
-  default_options: ['warning_level=2', 'cpp_std=c++14'])
-
-cpp = meson.get_compiler('cpp', native: true)
+  default_options: ['warning_level=2', 'c_std=c99', 'cpp_std=c++14'])
 
 sources = [
   'include/fmt/format.cpp',
@@ -25,6 +24,8 @@ includes = ['include']
 cpp_args = []
 options = []
 
+cpp = meson.get_compiler('cpp', native: true)
+
 # if(MSVC)
 if cpp.get_id() == 'msvc'
   sources  += 'include/getoptw/getoptw.c'
@@ -38,8 +39,7 @@ else
   endif
 endif
 
-superfamiconv = executable('superfamiconv',
-  sources,
+superfamiconv = executable('superfamiconv', sources,
   include_directories: includes,
   cpp_args: cpp_args,
   override_options: options,

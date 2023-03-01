@@ -1,3 +1,5 @@
+# Based on https://github.com/AntonioND/libugba/blob/v0.3.0/source/gba/CMakeLists.txt#L22-L42
+# and https://github.com/AntonioND/libugba/blob/v0.3.0/libsysgba/CMakeLists.txt#L12-L21
 project('libugba', 'c',
   version: '0.3.0',
   license: 'MIT',
@@ -38,8 +40,7 @@ includes_ugba = ['include']
 
 sysgba = static_library('sysgba', sources_sysgba)
 
-ugba = static_library('ugba',
-  sources_ugba,
+ugba = static_library('ugba', sources_ugba,
   include_directories: includes_ugba,
   c_args: ['-D__GBA__', '-Wno-unused-parameter'])
 

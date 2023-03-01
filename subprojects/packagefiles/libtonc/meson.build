@@ -1,3 +1,4 @@
+# Based on https://github.com/gbadev-org/libtonc/blob/cc862ceb8b7151f1125b6ce629925be6e54827c3/Makefile#L17-L44
 project('libtonc', 'c',
   version: '1.4.3',
   license: 'MIT',
@@ -89,22 +90,13 @@ if console.allowed()
   compile_args += ['-DLIBTONC_HAS_CONSOLE']
 endif
 
-# TONC's .s files are expected to be compiled with -x assembler-with-cpp
-#
-# Meson does not allow us to specify per-file compiler flags, so we bundle
-# all the assembly into a static library, and link it into the final libtonc.
-libtonc_asm = static_library(
-  'tonc_asm',
-  sources_asm,
+libtonc_asm = static_library('tonc_asm', sources_asm,
   include_directories: includes,
-  c_args: ['-x', 'assembler-with-cpp', '-Wa,--warn'],)
+  c_args: ['-xassembler-with-cpp', '-Wa,--warn'])
 
-libtonc = static_library(
-  'tonc',
-  sources_c,
+libtonc = static_library('tonc', sources_c,
   include_directories: includes,
-  link_with: libtonc_asm,
-  c_args: ['-fno-strict-aliasing'],)
+  objects: libtonc_asm.extract_all_objects(recursive: false))
 
 libtonc_dep = declare_dependency(
   compile_args: compile_args,

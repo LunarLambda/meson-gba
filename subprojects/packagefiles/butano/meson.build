@@ -1,9 +1,11 @@
+# Based on https://github.com/GValiente/butano/blob/13.1.1/butano/butano.mak#L47-L87
 project('butano', 'c', 'cpp',
   version: '13.1.1',
   license: 'Zlib',
   meson_version: '>=0.54.0',
   default_options: [
-    'warning_level=2',
+    'warning_level=3',
+    'c_std=none',
     'cpp_std=c++20',
     'cpp_eh=none',
     'cpp_rtti=false'])
@@ -133,40 +135,35 @@ includes = [
 
 maxmod = dependency('maxmod')
 
-butano_asm = static_library(
-  'butano-asm',
-  sources_asm,
+butano_asm = static_library('butano-asm', sources_asm,
   include_directories: includes,
   dependencies: [maxmod],
   c_args: ['-xassembler-with-cpp'])
 
-butano_iwram = static_library(
-  'butano-iwram',
-  sources_iwram,
+butano_iwram = static_library('butano-iwram', sources_iwram,
   include_directories: includes,
   dependencies: [maxmod],
   c_args: ['-marm', '-fno-lto'])
 
-butano_ewram = static_library(
-  'butano-ewram',
-  sources_ewram,
+butano_ewram = static_library('butano-ewram', sources_ewram,
+  include_directories: includes,
+  dependencies: [maxmod],
+  c_args: ['-mthumb', '-fno-lto'])
+
+butano_nolto = static_library('butano-nolto', sources_nolto,
   include_directories: includes,
   dependencies: [maxmod],
   c_args: ['-fno-lto'])
 
-butano_nolto = static_library(
-  'butano-nolto',
-  sources_nolto,
+butano = static_library('butano', sources,
   include_directories: includes,
   dependencies: [maxmod],
-  c_args: ['-fno-lto'])
-
-butano = static_library(
-  'butano',
-  sources,
-  include_directories: includes,
-  dependencies: [maxmod],
-  link_with: [butano_asm, butano_iwram, butano_ewram, butano_nolto])
+  objects: [
+    butano_asm.extract_all_objects(recursive: false),
+    butano_iwram.extract_all_objects(recursive: false),
+    butano_ewram.extract_all_objects(recursive: false),
+    butano_nolto.extract_all_objects(recursive: false),
+  ])
 
 butano_dep = declare_dependency(
   include_directories: includes,

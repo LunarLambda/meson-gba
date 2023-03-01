@@ -1,10 +1,15 @@
+# Based on https://github.com/bmchtech/dusk/blob/131f14ea65799a8c4ff2ff43d0c9978b3d7fda2a/src/dusk/Makefile#L20-L56
 project('dusk', 'c',
   version: '0.1.7',
-  license: 'GPL-3.0-or-later',
+  license: 'GPL-3.0-only',
   meson_version: '>=0.54.0',
   default_options: ['warning_level=1', 'c_std=none'])
 
-libtonc = dependency('libtonc')
+c_args = [
+  '-Werror=implicit-function-declaration',
+]
+
+add_project_arguments(c_args, language: 'c')
 
 sources = [
   'src/dusk/src/contrib/initMapRegisters.c',
@@ -30,9 +35,9 @@ includes = [
   'src/dusk/include/contrib',
 ]
 
-dusk = static_library(
-  'dusk',
-  sources,
+libtonc = dependency('libtonc')
+
+dusk = static_library('dusk', sources,
   include_directories: includes,
   dependencies: [libtonc],
   c_args: ['-DDUSK_VERSION="@0@"'.format(meson.project_version())])
