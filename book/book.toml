@@ -7,3 +7,6 @@ title = "Meson for GBA"
 
 [build]
 build-dir = "build"
+
+[output.html]
+preferred-dark-theme = "ayu"
