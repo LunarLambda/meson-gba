@@ -2,7 +2,6 @@ libseven = dependency('libseven')
 minrt = dependency('minrt')
 
 elf = executable('guide-01', 'src/main.c',
-  include_directories: ['include'],
   dependencies: [minrt, libseven],
   name_suffix: 'elf')
 
