@@ -60,7 +60,7 @@ endif
 
 libgba = static_library('gba', sources,
   include_directories: includes + ['src'],
-  c_args: ['-Wno-switch', '-Wno-multichar', '-Wa,--warn'])
+  c_args: ['-mno-asm-syntax-unified', '-Wno-switch', '-Wno-multichar', '-Wa,--warn'])
 
 libgba_dep = declare_dependency(
   compile_args: compile_args,
