@@ -82,7 +82,7 @@ Windows, using MSYS2:
 sed "2cpath = '$(cygpath -m $DEVKITARM/bin)'" gba.ini > dkarm.ini
 ```
 
-Linux / MacOS:
+Windows, using WSL / Linux / MacOS:
 
 ```sh
 sed "2cpath = '$DEVKITARM/bin'" gba.ini > dkarm.ini
@@ -133,11 +133,9 @@ If you wish to detect the devkitARM compiler specifically:
 ```meson
 cc = meson.get_compiler('c')
 
-output = run_command(cc, '--version', capture: true, check: false)
+cc_ver = run_command(cc, '--version', capture: true, check: false)
 
-if output.stdout().to_lower().contains('devkitarm')
-    message('we have devkitARM!')
-endif
+have_devkitarm = cc_ver.stdout().to_lower().contains('devkitarm')
 ```
 
 See the [Meson compiler API][meson-compiler] for other things you can test for.

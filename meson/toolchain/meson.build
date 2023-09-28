@@ -3,31 +3,31 @@ cc = meson.get_compiler('c')
 
 cc_ver = run_command(cc, '--version', capture: true, check: false)
 
-if cc_ver.stdout().to_lower().contains('devkitarm')
-  have_devkitarm = true
-else
-  have_devkitarm = false
-endif
+have_devkitarm = cc_ver.stdout().to_lower().contains('devkitarm')
 
-# List of global compilation args. All libraries will be built with these.
+# List of global compiler arguments.
 compile_args = [
-  '-mthumb',
-  '-ffunction-sections',
-  '-fdata-sections',
+  '-ffunction-sections',        # Every function gets placed into its own section.
+  '-fdata-sections',            # Every global variable gets placed into its own section.
+  '-mthumb',                    # Generate THUMB code by default.
+  '-masm-syntax-unified',       # Use unified assembler syntax for inline assembly.
 ]
 
-# no$gba does not support DWARF 5 debug info and crashes. Use DWARF 4.
 if get_option('debug')
-  compile_args += '-gdwarf-4'
+  compile_args += [
+    '-g3',                      # Generate extended debug information for macros.
+    '-gdwarf-4'                 # no$gba does not support DWARF 5 debug info and crashes.
+  ]
 endif
 
 add_global_arguments(compile_args, language: ['c', 'cpp'])
 
 # List of link arguments.
 link_args = [
-  '-mthumb',
-  '-Wl,--gc-sections',
-  '-Wl,-Map=%',
+  '-mthumb',                    # Link with THUMB builds of libraries like libc
+  '-Wl,-n',                     # Get rid of section page alignment. Reduces ELF file size.
+  '-Wl,--gc-sections',          # Remove unused sections.
+  '-Wl,-Map=%',                 # Generate a link map file.
 ]
 
 # Newer binutils add warnings we don't care about.
