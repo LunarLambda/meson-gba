@@ -104,6 +104,8 @@ ninja -C build
 
 The built ROMs (.elf, .gba) will be in the `build` directory.
 
+Check out the `examples` branch for some example projects.
+
 ## Windows
 
 For development on Windows, the easiest method is to use MSYS2, either using
