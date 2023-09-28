@@ -1,0 +1,8 @@
+{
+    "recommendations":
+    [
+        "dan-c-underwood.arm",
+        "mesonbuild.meson",
+        "ms-vscode.cpptools",
+    ],
+}
