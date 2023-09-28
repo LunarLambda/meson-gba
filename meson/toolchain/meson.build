@@ -27,6 +27,7 @@ add_global_arguments(compile_args, language: ['c', 'cpp'])
 link_args = [
   '-mthumb',
   '-Wl,--gc-sections',
+  '-Wl,-Map=%',
 ]
 
 # Newer binutils add warnings we don't care about.

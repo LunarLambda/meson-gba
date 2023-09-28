@@ -11,13 +11,6 @@ includes = [
   'include',
 ]
 
-# Linker arguments. Be careful with these.
-# -Wl,-Map causes the linker to output a 'link map', which can be useful for
-# debugging. If you don't know what that is, you can safely ignore it.
-link_args = [
-  f'-Wl,-Map,@name@.map',
-]
-
 # Dependencies. gba-meson provides a large number of GBA development libraries.
 # Check them out and add the ones you want to use to this list.
 dependencies = [
@@ -30,7 +23,6 @@ elf = executable(
   name,
   sources,
   include_directories: includes,
-  link_args: link_args,
   dependencies: dependencies,
   name_suffix: 'elf')
 
