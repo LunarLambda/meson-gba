@@ -1,7 +1,6 @@
 [wrap-git]
 url = https://github.com/felixjones/gba-hpp
-revision = 405f379e7fee311815c7f7a4a6339c38a9e24c8f
-patch_directory = gba-hpp
+revision = 993fbb1f9bcf155355051578a20e2be8d8cedd4a
 
 [provide]
 dependency_names = gba-hpp
