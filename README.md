@@ -12,39 +12,43 @@ in mind, so make sure your tools are as up-to-date as can be.
 
 ## What's Included
 
+Versions are generally of the format `[<tag>.]r<number of commits>.g<git commit hash>`. Projects
+that don't use git are annotated with the latest file date present in the source archive.
+
 - Development Libraries:
-    - [agbabi]
-    - [butano]
-    - [dusk]
-    - [gba-hpp]
-    - [gbt-player]
-    - [heartlib]
-    - [libfat] \(requires devkitARM\)
-    - [libgba]
-    - [libseven]
-    - [libtonc]
-    - [libugba]
-    - [maxmod]
-    - [posprintf]
+    - [agbabi] v2.1.4.r6.gc57c8b3
+    - [butano] 13.1.1
+    - [dusk] v0.1.7.r3.g131f14e
+    - [gba-hpp] r176.993fbb1
+    - [gba-link-connection] v3.0.0
+    - [gbfs] 2002-02-07
+    - [gbt-player] v4.4.1
+    - [heartlib] r280.1977aba
+    - [libfat] v1.1.5.r2.g69543f0 (requires devkitARM)
+    - [libgba] r136.0d46fc9
+    - [libseven] v0.17.2
+    - [libtonc] r15.cc862ce
+    - [libugba] v0.3.0
+    - [maxmod] v1.0.15
+    - [posprintf] 2008-10-11
 - Runtime Libraries:
-    - [devkitARM]
-    - [libsysgba]
-    - [minrt]
+    - [libsysgba] v0.3.0
+    - [minrt] v0.8.0
 - Build Tools:
     - From [gbt-player]:
         - mod2gbt
         - s3m2gbt
         - s3msplit
     - From [grit] \(requires FreeImage\):
-        - grit
+        - grit v0.9.2
     - From [mmutil]:
-        - mmutil
+        - mmutil v1.10.1
     - From [sdk-seven]:
         - gbafix-py
         - bin2s-py
         - makerom
     - From [SuperFamiconv]:
-        - superfamiconv
+        - superfamiconv v0.9.2.r16.ga5027f3
 
 ## Installation
 
@@ -64,7 +68,7 @@ following commands:
 
 ```sh
 meson subprojects download
-meson setup --cross-file=gba.ini build
+meson setup --cross-file=meson/gba.ini build
 ```
 
 If you want to use devkitPro (for example, if you want to use libfat), use the
@@ -73,19 +77,19 @@ following command to generate a suitable cross file:
 Windows, using Powershell (not recommended):
 
 ```powershell
-$f = gc gba.ini; $f[1] = "path = '$Env:DEVKITARM/bin'"; sc dkarm.ini $f
+$f = gc meson/gba.ini; $f[1] = "path = '$Env:DEVKITARM/bin'"; sc dkarm.ini $f
 ```
 
 Windows, using MSYS2:
 
 ```sh
-sed "2cpath = '$(cygpath -m $DEVKITARM/bin)'" gba.ini > dkarm.ini
+sed "2cpath = '$(cygpath -m $DEVKITARM/bin)'" meson/gba.ini > dkarm.ini
 ```
 
 Windows, using WSL / Linux / MacOS:
 
 ```sh
-sed "2cpath = '$DEVKITARM/bin'" gba.ini > dkarm.ini
+sed "2cpath = '$DEVKITARM/bin'" meson/gba.ini > dkarm.ini
 ```
 
 Then run
@@ -103,6 +107,8 @@ ninja -C build
 ```
 
 The built ROMs (.elf, .gba) will be in the `build` directory.
+
+Check out the `examples` branch for some example projects.
 
 ## Windows
 
@@ -150,8 +156,9 @@ See [LICENSE.txt](./LICENSE.txt) for more information.
 [devkitARM]: https://github.com/devkitPro/devkitarm-crtls
 [download]: https://github.com/LunarLambda/meson-gba/archive/refs/heads/main.zip
 [dusk]: https://github.com/bmchtech/dusk
-[gbadv]: https://github.com/sverx/GBAdv
 [gba-hpp]: https://github.com/felixjones/gba-hpp
+[gba-link-connection]: https://github.com/rodri042/gba-link-connection
+[gbfs]: https://pineight.com/gba/#gbfs
 [gbt-player]: https://github.com/AntonioND/gbt-player
 [grit]: https://github.com/devkitPro/grit
 [heartlib]: https://github.com/Sterophonick/HeartLib
