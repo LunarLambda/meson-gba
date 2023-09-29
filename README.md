@@ -68,7 +68,7 @@ following commands:
 
 ```sh
 meson subprojects download
-meson setup --cross-file=gba.ini build
+meson setup --cross-file=meson/gba.ini build
 ```
 
 If you want to use devkitPro (for example, if you want to use libfat), use the
@@ -77,19 +77,19 @@ following command to generate a suitable cross file:
 Windows, using Powershell (not recommended):
 
 ```powershell
-$f = gc gba.ini; $f[1] = "path = '$Env:DEVKITARM/bin'"; sc dkarm.ini $f
+$f = gc meson/gba.ini; $f[1] = "path = '$Env:DEVKITARM/bin'"; sc dkarm.ini $f
 ```
 
 Windows, using MSYS2:
 
 ```sh
-sed "2cpath = '$(cygpath -m $DEVKITARM/bin)'" gba.ini > dkarm.ini
+sed "2cpath = '$(cygpath -m $DEVKITARM/bin)'" meson/gba.ini > dkarm.ini
 ```
 
 Windows, using WSL / Linux / MacOS:
 
 ```sh
-sed "2cpath = '$DEVKITARM/bin'" gba.ini > dkarm.ini
+sed "2cpath = '$DEVKITARM/bin'" meson/gba.ini > dkarm.ini
 ```
 
 Then run
