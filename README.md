@@ -16,11 +16,11 @@ Versions are generally of the format `[<tag>.]r<number of commits>.g<git commit 
 that don't use git are annotated with the latest file date present in the source archive.
 
 - Development Libraries:
-    - [agbabi] v2.1.4.r6.gc57c8b3
+    - [agbabi] v2.1.5
     - [butano] 13.1.1
     - [dusk] v0.1.7.r3.g131f14e
     - [gba-hpp] r176.993fbb1
-    - [gba-link-connection] v3.0.0
+    - [gba-link-connection] v5.0.2
     - [gbfs] 2002-02-07
     - [gbt-player] v4.4.1
     - [heartlib] r280.1977aba
@@ -163,17 +163,17 @@ See [LICENSE.txt](./LICENSE.txt) for more information.
 [grit]: https://github.com/devkitPro/grit
 [heartlib]: https://github.com/Sterophonick/HeartLib
 [libfat]: https://github.com/devkitPro/libfat
-[libgba]: https://github.com/devkitPro/libgba
+[libgba]: https://github.com/gbadev-org/libgba
 [libseven]: https://github.com/LunarLambda/sdk-seven
 [libsysgba]: https://github.com/AntonioND/libugba
-[libtonc]: https://github.com/devkitPro/libtonc
+[libtonc]: https://github.com/gbadev-org/libtonc
 [libugba]: https://github.com/AntonioND/libugba
 [maxmod]: https://github.com/devkitPro/maxmod
 [meson-build]: https://mesonbuild.com/index.html
 [meson-compiler]: https://mesonbuild.com/Reference-manual_returned_compiler.html
 [meson-options]: https://mesonbuild.com/Build-options.html#using-build-options
 [minrt]: https://github.com/LunarLambda/sdk-seven
-[mmutil]: https://github.com/GValiente/mmutil
+[mmutil]: https://github.com/devkitPro/mmutil
 [msys2-dkp]: https://devkitpro.org/wiki/Getting_Started#Windows
 [msys2-official]: https://www.msys2.org
 [posprintf]: http://danposluns.com/gbadev/posprintf/index.html
