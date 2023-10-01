@@ -17,7 +17,7 @@ that don't use git are annotated with the latest file date present in the source
 
 - Development Libraries:
     - [agbabi] v2.1.5
-    - [butano] 13.1.1
+    - [butano] 15.4.1
     - [dusk] v0.1.7.r3.g131f14e
     - [gba-hpp] r176.993fbb1
     - [gba-link-connection] v5.0.2
