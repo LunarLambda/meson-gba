@@ -26,14 +26,15 @@ that don't use git are annotated with the latest file date present in the source
     - [heartlib] r280.1977aba
     - [libfat] v1.1.5.r2.g69543f0 (requires devkitARM)
     - [libgba] r136.0d46fc9
-    - [libseven] v0.17.2
+    - [libseven] v0.22.0
     - [libtonc] r15.cc862ce
     - [libugba] v0.3.0
+    - [libutil] v0.1.0
     - [maxmod] v1.0.15
     - [posprintf] 2008-10-11
 - Runtime Libraries:
     - [libsysgba] v0.3.0
-    - [minrt] v0.8.0
+    - [minrt] v0.9.0
 - Build Tools:
     - From [gbt-player]:
         - mod2gbt
@@ -168,6 +169,7 @@ See [LICENSE.txt](./LICENSE.txt) for more information.
 [libsysgba]: https://github.com/AntonioND/libugba
 [libtonc]: https://github.com/gbadev-org/libtonc
 [libugba]: https://github.com/AntonioND/libugba
+[libutil]: https://github.com/LunarLambda/sdk-seven
 [maxmod]: https://github.com/devkitPro/maxmod
 [meson-build]: https://mesonbuild.com/index.html
 [meson-compiler]: https://mesonbuild.com/Reference-manual_returned_compiler.html
