@@ -1,6 +1,6 @@
 # Based on https://github.com/GValiente/butano/blob/15.4.1/butano/butano.mak#L76-L123
 project('butano', 'c', 'cpp',
-  version: '15.4.1',
+  version: '15.7.0',
   license: 'Zlib',
   meson_version: '>=0.54.0',
   default_options: [
@@ -39,6 +39,9 @@ sources = [
   'butano/hw/3rd_party/gbt-player/src/gbt_player.c',
   'butano/hw/3rd_party/libtonc/src/tonc_color.c',
   'butano/hw/3rd_party/libtonc/src/tonc_sbmp16.c',
+  'butano/hw/3rd_party/libtonc/src/tonc_schr4c.c',
+  'butano/hw/3rd_party/libtonc/src/tonc_schr4r.c',
+  'butano/hw/3rd_party/libtonc/src/tonc_surface.c',
   'butano/hw/3rd_party/libtonc/src/tte/bmp16_drawg_b1cs.c',
   'butano/hw/3rd_party/libtonc/src/tte/tte_init_bmp.c',
   'butano/hw/3rd_party/libtonc/src/tte/tte_main.c',
