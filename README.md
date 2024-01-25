@@ -34,7 +34,7 @@ that don't use git are annotated with the latest file date present in the source
     - [posprintf] 2008-10-11
 - Runtime Libraries:
     - [libsysgba] v0.3.0
-    - [minrt] v0.11.0
+    - [minrt] v0.11.1
 - Build Tools:
     - From [gbfs]:
         - gbfs
