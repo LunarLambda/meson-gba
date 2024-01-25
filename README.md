@@ -26,7 +26,7 @@ that don't use git are annotated with the latest file date present in the source
     - [heartlib] r280.1977aba
     - [libfat] v1.1.5.r2.g69543f0 (requires devkitARM)
     - [libgba] r136.0d46fc9
-    - [libseven] v0.22.0
+    - [libseven] v0.22.2
     - [libtonc] r15.cc862ce
     - [libugba] v0.3.0
     - [libutil] v0.1.0
@@ -34,7 +34,7 @@ that don't use git are annotated with the latest file date present in the source
     - [posprintf] 2008-10-11
 - Runtime Libraries:
     - [libsysgba] v0.3.0
-    - [minrt] v0.9.0
+    - [minrt] v0.11.0
 - Build Tools:
     - From [gbt-player]:
         - mod2gbt
@@ -44,7 +44,7 @@ that don't use git are annotated with the latest file date present in the source
         - grit v0.9.2
     - From [mmutil]:
         - mmutil v1.10.1
-    - From [sdk-seven]:
+    - From [minrt]:
         - gbafix-py
         - bin2s-py
         - makerom
@@ -165,19 +165,18 @@ See [LICENSE.txt](./LICENSE.txt) for more information.
 [heartlib]: https://github.com/Sterophonick/HeartLib
 [libfat]: https://github.com/devkitPro/libfat
 [libgba]: https://github.com/gbadev-org/libgba
-[libseven]: https://github.com/LunarLambda/sdk-seven
+[libseven]: https://github.com/sdk-seven/libseven
 [libsysgba]: https://github.com/AntonioND/libugba
 [libtonc]: https://github.com/gbadev-org/libtonc
 [libugba]: https://github.com/AntonioND/libugba
-[libutil]: https://github.com/LunarLambda/sdk-seven
+[libutil]: https://github.com/sdk-seven/libutil
 [maxmod]: https://github.com/devkitPro/maxmod
 [meson-build]: https://mesonbuild.com/index.html
 [meson-compiler]: https://mesonbuild.com/Reference-manual_returned_compiler.html
 [meson-options]: https://mesonbuild.com/Build-options.html#using-build-options
-[minrt]: https://github.com/LunarLambda/sdk-seven
+[minrt]: https://github.com/sdk-seven/runtime
 [mmutil]: https://github.com/devkitPro/mmutil
 [msys2-dkp]: https://devkitpro.org/wiki/Getting_Started#Windows
 [msys2-official]: https://www.msys2.org
 [posprintf]: http://danposluns.com/gbadev/posprintf/index.html
-[sdk-seven]: https://github.com/LunarLambda/sdk-seven
 [superfamiconv]: https://github.com/Optiroc/SuperFamiconv
