@@ -1,7 +1,0 @@
-[wrap-git]
-url = https://github.com/LunarLambda/sdk-seven
-revision = v0.26.0
-
-[provide]
-dependency_names = libseven, minrt, minrt-multiboot
-program_names = makerom, gbafix-py, bin2s-py

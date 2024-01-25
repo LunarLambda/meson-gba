@@ -1,0 +1,6 @@
+[wrap-git]
+url = https://github.com/sdk-seven/libutil
+revision = main
+
+[provide]
+dependency_names = libutil
