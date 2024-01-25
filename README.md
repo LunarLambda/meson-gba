@@ -1,7 +1,7 @@
 # meson-gba - Modern GBA Development with Meson
 
 This project provides [Meson][meson-build] build files for various Game Boy
-Advance libraries and tools.
+Advance libraries and tools. See [projects made with meson-gba](./PROJECTS.md).
 
 ## Development Notice
 
