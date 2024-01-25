@@ -36,6 +36,11 @@ that don't use git are annotated with the latest file date present in the source
     - [libsysgba] v0.3.0
     - [minrt] v0.11.0
 - Build Tools:
+    - From [gbfs]:
+        - gbfs
+        - insgbfs
+        - lsgbfs
+        - ungbfs
     - From [gbt-player]:
         - mod2gbt
         - s3m2gbt
