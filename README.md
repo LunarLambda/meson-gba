@@ -28,7 +28,7 @@ Project               | Version            | Dependencies               | Progra
 [gbt-player]          | 4.4.1              | `gbt-player`               | `mod2gbt`, `s3m2gbt`, `s3msplit`
 [grit]                | 0.9.2              |                            | `grit`
 [heartlib]            | r280.1977aba       | `heartlib`                 |
-[libfat]              | 1.1.5.r2.g69543f0  | `libfat`                   |
+[libfat] [^1]         | 1.1.5.r2.g69543f0  | `libfat`                   |
 [libgba]              | r136.0d46fc9       | `libgba`                   |
 [libseven]            | 0.22.3             | `libseven`                 |
 [libtonc]             | r15.cc862ce        | `libtonc`                  |
@@ -39,6 +39,8 @@ Project               | Version            | Dependencies               | Progra
 [mmutil]              | 1.10.1             |                            | `mmutil`
 [posprintf]           | sdk-seven fork     | `posprintf`                |
 [superfamiconv]       | 0.9.2.r16.ga5027f3 |                            | `superfamiconv`
+
+[^1]: devkitPro only
 
 ## Installation and Usage
 
