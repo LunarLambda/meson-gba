@@ -1,9 +1,6 @@
-[wrap-file]
-source_url = http://www.danposluns.com/gbadev/posprintf/posprintf.zip
-source_filename = posprintf.zip
-source_hash = 989ad64206c1d7a6d2d798afb0aa00d326d544794c76f1e535ef95396e60d8f3
-lead_directory_missing = true
-patch_directory = posprintf
+[wrap-git]
+url = https://github.com/sdk-seven/posprintf
+revision = main
 
 [provide]
 dependency_names = posprintf

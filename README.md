@@ -26,15 +26,15 @@ that don't use git are annotated with the latest file date present in the source
     - [heartlib] r280.1977aba
     - [libfat] v1.1.5.r2.g69543f0 (requires devkitARM)
     - [libgba] r136.0d46fc9
-    - [libseven] v0.22.2
+    - [libseven] v0.22.3
     - [libtonc] r15.cc862ce
     - [libugba] v0.3.0
     - [libutil] v0.1.0
     - [maxmod] v1.0.15
-    - [posprintf] 2008-10-11
+    - [posprintf] sdk-seven fork
 - Runtime Libraries:
     - [libsysgba] v0.3.0
-    - [minrt] v0.11.1
+    - [minrt] v0.12.0
 - Build Tools:
     - From [gbfs]:
         - gbfs
@@ -183,5 +183,5 @@ See [LICENSE.txt](./LICENSE.txt) for more information.
 [mmutil]: https://github.com/devkitPro/mmutil
 [msys2-dkp]: https://devkitpro.org/wiki/Getting_Started#Windows
 [msys2-official]: https://www.msys2.org
-[posprintf]: http://danposluns.com/gbadev/posprintf/index.html
+[posprintf]: https://github.com/sdk-seven/posprintf
 [superfamiconv]: https://github.com/Optiroc/SuperFamiconv
