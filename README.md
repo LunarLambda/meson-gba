@@ -133,9 +133,8 @@ See the homepages of the bundled projects for their respective licensing.
 [libfat]: https://github.com/devkitPro/libfat
 [libgba]: https://github.com/gbadev-org/libgba
 [libseven]: https://github.com/sdk-seven/libseven
-[libsysgba]: https://github.com/AntonioND/libugba
 [libtonc]: https://github.com/gbadev-org/libtonc
-[libugba]: https://github.com/AntonioND/libugba
+[libugba/libsysgba]: https://github.com/AntonioND/libugba
 [libutil]: https://github.com/sdk-seven/libutil
 [maxmod]: https://github.com/devkitPro/maxmod
 [meson-build]: https://mesonbuild.com/index.html
