@@ -1,7 +1,7 @@
 # meson-gba - Modern GBA Development with Meson
 
 This project provides [Meson][meson-build] build files for various Game Boy
-Advance libraries and tools. See [projects made with meson-gba](./PROJECTS.md).
+Advance libraries and tools.
 
 ## Development Notice
 
@@ -10,53 +10,37 @@ continuously being updated and improved. Things might break unexpectedly,
 and things are developed with the latest versions of meson and GCC/devkitARM
 in mind, so make sure your tools are as up-to-date as can be.
 
+[Projects made with meson-gba](./PROJECTS.md)
+
 ## What's Included
 
-Versions are generally of the format `[<tag>.]r<number of commits>.g<git commit hash>`. Projects
-that don't use git are annotated with the latest file date present in the source archive.
+Dependencies (libraries, runtimes) can be accessed using the [`dependency`][meson-dependency] function.\
+Programs can be accessed using the [`find_program`][meson-find_program] function.
 
-- Development Libraries:
-    - [agbabi] v2.1.5
-    - [butano] 15.7.0
-    - [dusk] v0.1.7.r3.g131f14e
-    - [gba-hpp] r176.993fbb1
-    - [gba-link-connection] v5.0.2
-    - [gbfs] 2002-02-07
-    - [gbt-player] v4.4.1
-    - [heartlib] r280.1977aba
-    - [libfat] v1.1.5.r2.g69543f0 (requires devkitARM)
-    - [libgba] r136.0d46fc9
-    - [libseven] v0.22.3
-    - [libtonc] r15.cc862ce
-    - [libugba] v0.3.0
-    - [libutil] v0.1.0
-    - [maxmod] v1.0.15
-    - [posprintf] sdk-seven fork
-- Runtime Libraries:
-    - [libsysgba] v0.3.0
-    - [minrt] v0.12.0
-- Build Tools:
-    - From [gbfs]:
-        - gbfs
-        - insgbfs
-        - lsgbfs
-        - ungbfs
-    - From [gbt-player]:
-        - mod2gbt
-        - s3m2gbt
-        - s3msplit
-    - From [grit] \(requires FreeImage\):
-        - grit v0.9.2
-    - From [mmutil]:
-        - mmutil v1.10.1
-    - From [minrt]:
-        - gbafix-py
-        - bin2s-py
-        - makerom
-    - From [SuperFamiconv]:
-        - superfamiconv v0.9.2.r16.ga5027f3
+Project               | Version            | Dependencies               | Programs
+----------------------|--------------------|----------------------------|---------
+[agbabi]              | 2.1.5              | `agbabi`                   |
+[butano]              | 15.7.0             | `butano`                   |
+[dusk]                | 0.1.7.r3.g131f14e  | `dusk`                     |
+[gba-hpp]             | r176.993fbb1       | `gba-hpp`                  |
+[gba-link-connection] | 5.0.2              | `gba-link-connection`      |
+[gbfs]                | 2002-02-07         | `gbfs`                     | `gbfs`, `insgbfs`, `lsgbfs`, `ungbfs`
+[gbt-player]          | 4.4.1              | `gbt-player`               | `mod2gbt`, `s3m2gbt`, `s3msplit`
+[grit]                | 0.9.2              |                            | `grit`
+[heartlib]            | r280.1977aba       | `heartlib`                 |
+[libfat]              | 1.1.5.r2.g69543f0  | `libfat`                   |
+[libgba]              | r136.0d46fc9       | `libgba`                   |
+[libseven]            | 0.22.3             | `libseven`                 |
+[libtonc]             | r15.cc862ce        | `libtonc`                  |
+[libugba/libsysgba]   | 0.3.0              | `libugba`, `libsysgba`     |
+[libutil]             | r1.743f5d1         | `libutil`                  |
+[maxmod]              | 1.0.15             | `maxmod`                   |
+[minrt]               | 0.12.0             | `minrt`, `minrt-multiboot` | `makerom`, `gbafix-py`, `bin2s-py`
+[mmutil]              | 1.10.1             |                            | `mmutil`
+[posprintf]           | sdk-seven fork     | `posprintf`                |
+[superfamiconv]       | 0.9.2.r16.ga5027f3 |                            | `superfamiconv`
 
-## Installation
+## Installation and Usage
 
 As all the libraries and tools are compiled from source, the only things you
 need to have installed and in your PATH are:
@@ -66,16 +50,9 @@ need to have installed and in your PATH are:
 - A compiler for your system (`cl.exe`, `gcc`, etc.)
 - A compiler for the GBA (`arm-none-eabi-gcc`)
 
-## Compiling
+See the [meson gba book](https://lunarlambda.github.io/meson-gba-book/) for more information.
 
-Once you have everything, `git clone` or [download] this repository, then
-navigate to the directory in a terminal (or "command-line") window, and run the
-following commands:
-
-```sh
-meson subprojects download
-meson setup --cross-file=meson/gba.ini build
-```
+## Using devkitPro
 
 If you want to use devkitPro (for example, if you want to use libfat), use the
 following command to generate a suitable cross file:
@@ -116,23 +93,6 @@ The built ROMs (.elf, .gba) will be in the `build` directory.
 
 Check out the `examples` branch for some example projects.
 
-## Windows
-
-For development on Windows, the easiest method is to use MSYS2, either using
-the [official installer][msys2-official], or the [devkitPro installer][msys2-dkp].
-
-Install everything needed like so:
-
-```sh
-pacman -S mingw-w64-ucrt-x86_64-meson git mingw-w64-ucrt-x86_64-gcc
-```
-
-And if using the non-devkitPro compiler (recommended!):
-
-```sh
-pacman -S mingw-w64-ucrt-x86_64-arm-none-eabi-toolchain
-```
-
 ## Compiler Support
 
 This toolchain works both with devkitARM, and "standard" arm-none-eabi-gcc
@@ -154,8 +114,10 @@ See the [Meson compiler API][meson-compiler] for other things you can test for.
 
 ## License
 
-This project is licensed under the zlib license.\
+meson-gba is licensed under the zlib license.\
 See [LICENSE.txt](./LICENSE.txt) for more information.
+
+See the homepages of the bundled projects for their respective licensing.
 
 [agbabi]: https://github.com/felixjones/agbabi
 [butano]: https://github.com/GValiente/butano
@@ -178,6 +140,8 @@ See [LICENSE.txt](./LICENSE.txt) for more information.
 [maxmod]: https://github.com/devkitPro/maxmod
 [meson-build]: https://mesonbuild.com/index.html
 [meson-compiler]: https://mesonbuild.com/Reference-manual_returned_compiler.html
+[meson-dependency]: https://mesonbuild.com/Reference-manual_functions.html#dependency
+[meson-find_program]: https://mesonbuild.com/Reference-manual_functions.html#find_program
 [meson-options]: https://mesonbuild.com/Build-options.html#using-build-options
 [minrt]: https://github.com/sdk-seven/runtime
 [mmutil]: https://github.com/devkitPro/mmutil
