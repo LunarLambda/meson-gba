@@ -1,6 +1,6 @@
 # Based on https://github.com/GValiente/butano/blob/15.4.1/butano/butano.mak#L76-L123
 project('butano', 'c', 'cpp',
-  version: '15.7.0',
+  version: '17.3.0',
   license: 'Zlib',
   meson_version: '>=0.54.0',
   default_options: [
@@ -9,6 +9,25 @@ project('butano', 'c', 'cpp',
     'cpp_std=c++20',
     'cpp_eh=none',
     'cpp_rtti=false'])
+
+defines = [
+  '-DBN_TOOLCHAIN_TAG="meson-gba"',
+]
+
+toolchain = get_option('toolchain')
+
+if toolchain == 'devkitarm'
+  defines += [
+    '-DBN_EWRAM_BSS_SECTION=".sbss"',
+    '-DBN_IWRAM_START=__iwram_start__',
+    '-DBN_IWRAM_TOP=__iwram_top',
+    '-DBN_IWRAM_END=__fini_array_end',
+    '-DBN_ROM_START=__text_start',
+    '-DBN_ROM_END=__rom_end__',
+  ]
+elif toolchain == 'minrt'
+  error('unimplemented: minrt support for butano')
+endif
 
 c_args = [
   '-Wpedantic',
@@ -24,6 +43,15 @@ c_args = [
   '-Wstack-usage=16384',
 ]
 
+if get_option('stacktrace')
+  defines += ['-DBN_STACKTRACE']
+
+  c_args += [
+    '-funwind-tables',
+    '-mpoke-function-name',
+  ]
+endif
+
 cpp_args = [
   '-Wuseless-cast',
   '-Wnon-virtual-dtor',
@@ -32,10 +60,12 @@ cpp_args = [
   '-fuse-cxa-atexit',
 ]
 
-add_project_arguments(c_args, language: ['c', 'cpp'])
+add_project_arguments(defines + c_args, language: ['c', 'cpp'])
 add_project_arguments(cpp_args, language: 'cpp')
 
 sources = [
+  'butano/hw/3rd_party/agbabi/src/coroutine.c',
+  'butano/hw/3rd_party/agbabi/src/rtc.c',
   'butano/hw/3rd_party/gbt-player/src/gbt_player.c',
   'butano/hw/3rd_party/libtonc/src/tonc_color.c',
   'butano/hw/3rd_party/libtonc/src/tonc_sbmp16.c',
@@ -50,14 +80,11 @@ sources = [
   'butano/hw/src/bn_hw_audio.cpp',
   'butano/hw/src/bn_hw_cstdlib.cpp',
   'butano/hw/src/bn_hw_cstring.cpp',
-  'butano/hw/src/bn_hw_game_pak.cpp',
   'butano/hw/src/bn_hw_irq.cpp',
   'butano/hw/src/bn_hw_link.cpp',
-  'butano/hw/src/bn_hw_log.cpp',
   'butano/hw/src/bn_hw_memory.cpp',
   'butano/hw/src/bn_hw_palettes.cpp',
   'butano/hw/src/bn_hw_show.cpp',
-  'butano/hw/src/bn_hw_sprite_tiles.cpp',
   'butano/hw/src/bn_hw_sram.cpp',
   'butano/hw/src/bn_hw_system_font.cpp',
   'butano/hw/src/bn_hw_text.cpp',
@@ -67,36 +94,30 @@ sources = [
   'butano/src/bn_bg_blocks_manager.cpp',
   'butano/src/bn_bgs_manager.cpp',
   'butano/src/bn_cameras_manager.cpp',
-  'butano/src/bn_color_effect.cpp',
   'butano/src/bn_core.cpp',
   'butano/src/bn_display_manager.cpp',
-  'butano/src/bn_format.cpp',
-  'butano/src/bn_generic_pool.cpp',
   'butano/src/bn_gpio_manager.cpp',
   'butano/src/bn_hblank_effects_manager.cpp',
   'butano/src/bn_hdma_manager.cpp',
   'butano/src/bn_keypad_manager.cpp',
   'butano/src/bn_link_manager.cpp',
-  'butano/src/bn_log.cpp',
-  'butano/src/bn_math.cpp',
   'butano/src/bn_memory_manager.cpp',
   'butano/src/bn_palettes_manager.cpp',
   'butano/src/bn_profiler.cpp',
-  'butano/src/bn_reciprocal_lut.cpp',
   'butano/src/bn_regular_bg_animate_actions.cpp',
-  'butano/src/bn_sin_lut.cpp',
   'butano/src/bn_sprite_affine_mats_manager.cpp',
   'butano/src/bn_sprite_animate_actions.cpp',
   'butano/src/bn_sprite_text_generator.cpp',
   'butano/src/bn_sprite_tiles_manager.cpp',
   'butano/src/bn_sprites_manager.cpp',
-  'butano/src/bn_sram.cpp',
   'butano/src/bn_sstream.cpp',
-  'butano/src/bn_timer.cpp',
+  'butano/src/bn_translation_unit.cpp',
 ]
 
 sources_asm = [
   'butano/hw/3rd_party/agbabi/src/atan2.s',
+  'butano/hw/3rd_party/agbabi/src/coroutine_asm.s',
+  'butano/hw/3rd_party/agbabi/src/fiq_memcpy.s',
   'butano/hw/3rd_party/agbabi/src/lmul.s',
   'butano/hw/3rd_party/agbabi/src/memcpy.s',
   'butano/hw/3rd_party/agbabi/src/memmove.s',
@@ -116,6 +137,13 @@ sources_asm = [
   'butano/hw/3rd_party/libtonc/asm/tonc_nocash.s',
   'butano/hw/3rd_party/libtonc/src/font/verdana9.s',
   'butano/hw/3rd_party/libugba/src/irq_handler.s',
+  'butano/hw/3rd_party/maxmod/source/mm_effect.s',
+  'butano/hw/3rd_party/maxmod/source/mm_main.s',
+  'butano/hw/3rd_party/maxmod/source/mm_mas.s',
+  'butano/hw/3rd_party/maxmod/source/mm_mas_arm.s',
+  'butano/hw/3rd_party/maxmod/source_gba/mm_init_default.s',
+  'butano/hw/3rd_party/maxmod/source_gba/mm_main_gba.s',
+  'butano/hw/3rd_party/maxmod/source_gba/mm_mixer_gba.s',
   'butano/hw/3rd_party/posprintf/src/posprintf.s',
   'butano/hw/src/bn_hw_bg_blocks.s',
   'butano/hw/src/bn_hw_core.s',
@@ -124,7 +152,6 @@ sources_asm = [
 ]
 
 sources_iwram = [
-  'butano/hw/src/bn_hw_memory.bn_iwram.cpp',
   'butano/hw/src/bn_hw_palettes.bn_iwram.cpp',
   'butano/hw/src/bn_hw_sprite_tiles.bn_iwram.cpp',
   'butano/src/bn_sprites_manager.bn_iwram.cpp',
@@ -143,35 +170,27 @@ includes = [
   'butano/include',
   'butano/hw/3rd_party/libtonc/include',
   'butano/hw/3rd_party/libugba/include',
-]
-
-deps = [
-  dependency('maxmod'),
+  'butano/hw/3rd_party/maxmod/include',
 ]
 
 butano_asm = static_library('butano-asm', sources_asm,
   include_directories: includes,
-  dependencies: deps,
   c_args: ['-xassembler-with-cpp'])
 
 butano_iwram = static_library('butano-iwram', sources_iwram,
   include_directories: includes,
-  dependencies: deps,
   c_args: ['-marm', '-fno-lto'])
 
 butano_ewram = static_library('butano-ewram', sources_ewram,
   include_directories: includes,
-  dependencies: deps,
   c_args: ['-fno-lto'])
 
 butano_nolto = static_library('butano-nolto', sources_nolto,
   include_directories: includes,
-  dependencies: deps,
   c_args: ['-fno-lto'])
 
 butano = static_library('butano', sources,
   include_directories: includes,
-  dependencies: deps,
   objects: [
     butano_asm.extract_all_objects(recursive: false),
     butano_iwram.extract_all_objects(recursive: false),

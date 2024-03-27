@@ -20,7 +20,7 @@ Libraries and tools can be accessed in meson using the [`dependency`][meson-depe
 Project               | Version            | Dependencies               | Programs
 ----------------------|--------------------|----------------------------|---------
 [agbabi]              | 2.1.5              | `agbabi`                   |
-[butano]              | 15.7.0             | `butano`                   |
+[butano] [^1]         | 17.3.0             | `butano`                   |
 [gba-hpp]             | r176.993fbb1       | `gba-hpp`                  |
 [gba-link-connection] | 5.0.2              | `gba-link-connection`      |
 [gbfs]                | 2002-02-07         | `gbfs`                     | `gbfs`, `insgbfs`, `lsgbfs`, `ungbfs`
