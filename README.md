@@ -46,7 +46,7 @@ Project               | Version            | Dependencies               | Progra
 As all the libraries and tools are compiled from source, the only things you need to have
 installed and in your PATH are:
 
-- meson (at least version 0.60.0, ideally 1.0.0 or later)
+- meson (at least version 1.1.0 or later)
 - git
 - A compiler for your system (`cl.exe`, `gcc`, etc.)
 - A compiler for the GBA (`arm-none-eabi-gcc`)
