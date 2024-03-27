@@ -1,7 +1,0 @@
-[wrap-git]
-url = https://github.com/Sterophonick/HeartLib
-revision = 1977ababfd6580793e0131b233b94bdec98f4589
-patch_directory = heartlib
-
-[provide]
-dependency_names = heartlib

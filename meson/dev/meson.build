@@ -1,13 +1,11 @@
 subprojects = [
   'agbabi',
   'butano',
-  'dusk',
   'gba-hpp',
   'gba-link-connection',
   'gbfs',
   'gbt-player',
   'grit',
-  'heartlib',
   'libgba',
   'libseven',
   'libtonc',
@@ -25,5 +23,6 @@ if have_devkitarm
 endif
 
 foreach s : subprojects
+  message('Setting up subproject', s)
   subproject(s)
 endforeach

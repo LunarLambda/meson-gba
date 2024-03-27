@@ -5,7 +5,7 @@ Advance libraries and tools.
 
 ## Development Notice
 
-This project is still very much in alpha. Things are still messy, but are
+This project is still fairly experimental. Things are still messy, but are
 continuously being updated and improved. Things might break unexpectedly,
 and things are developed with the latest versions of meson and GCC/devkitARM
 in mind, so make sure your tools are as up-to-date as can be.
@@ -14,20 +14,18 @@ in mind, so make sure your tools are as up-to-date as can be.
 
 ## What's Included
 
-Dependencies (libraries, runtimes) can be accessed using the [`dependency`][meson-dependency] function.\
-Programs can be accessed using the [`find_program`][meson-find_program] function.
+Libraries and tools can be accessed in meson using the [`dependency`][meson-dependency] and
+[`find_program`][meson-find_program] functions.
 
 Project               | Version            | Dependencies               | Programs
 ----------------------|--------------------|----------------------------|---------
 [agbabi]              | 2.1.5              | `agbabi`                   |
 [butano]              | 15.7.0             | `butano`                   |
-[dusk]                | 0.1.7.r3.g131f14e  | `dusk`                     |
 [gba-hpp]             | r176.993fbb1       | `gba-hpp`                  |
 [gba-link-connection] | 5.0.2              | `gba-link-connection`      |
 [gbfs]                | 2002-02-07         | `gbfs`                     | `gbfs`, `insgbfs`, `lsgbfs`, `ungbfs`
 [gbt-player]          | 4.4.1              | `gbt-player`               | `mod2gbt`, `s3m2gbt`, `s3msplit`
 [grit]                | 0.9.2              |                            | `grit`
-[heartlib]            | r280.1977aba       | `heartlib`                 |
 [libfat] [^1]         | 1.1.5.r2.g69543f0  | `libfat`                   |
 [libgba]              | r136.0d46fc9       | `libgba`                   |
 [libseven]            | 0.22.3             | `libseven`                 |
@@ -40,7 +38,7 @@ Project               | Version            | Dependencies               | Progra
 [posprintf]           | sdk-seven fork     | `posprintf`                |
 [superfamiconv]       | 0.9.2.r16.ga5027f3 |                            | `superfamiconv`
 
-[^1]: devkitPro only
+[^1]: devkitARM only
 
 ## Installation and Usage
 
@@ -125,13 +123,11 @@ See the homepages of the bundled projects for their respective licensing.
 [butano]: https://github.com/GValiente/butano
 [devkitARM]: https://github.com/devkitPro/devkitarm-crtls
 [download]: https://github.com/LunarLambda/meson-gba/archive/refs/heads/main.zip
-[dusk]: https://github.com/bmchtech/dusk
 [gba-hpp]: https://github.com/felixjones/gba-hpp
 [gba-link-connection]: https://github.com/rodri042/gba-link-connection
 [gbfs]: https://pineight.com/gba/#gbfs
 [gbt-player]: https://github.com/AntonioND/gbt-player
 [grit]: https://github.com/devkitPro/grit
-[heartlib]: https://github.com/Sterophonick/HeartLib
 [libfat]: https://github.com/devkitPro/libfat
 [libgba]: https://github.com/gbadev-org/libgba
 [libseven]: https://github.com/sdk-seven/libseven
