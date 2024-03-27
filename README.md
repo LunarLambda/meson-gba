@@ -21,7 +21,7 @@ Project               | Version            | Dependencies               | Progra
 ----------------------|--------------------|----------------------------|---------
 [agbabi]              | 2.1.5              | `agbabi`                   |
 [butano] [^1]         | 17.3.0             | `butano`                   |
-[gba-hpp]             | r176.993fbb1       | `gba-hpp`                  |
+[gba-hpp]             | r180.e313a94       | `gba-hpp`                  |
 [gba-link-connection] | 5.0.2              | `gba-link-connection`      |
 [gbfs]                | 2002-02-07         | `gbfs`                     | `gbfs`, `insgbfs`, `lsgbfs`, `ungbfs`
 [gbt-player]          | 4.4.1              | `gbt-player`               | `mod2gbt`, `s3m2gbt`, `s3msplit`
