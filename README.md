@@ -17,7 +17,7 @@ Libraries and tools can be accessed using the
 
 Project               | Version            | Dependencies               | Programs
 ----------------------|--------------------|----------------------------|---------
-[agbabi]              | 2.1.5              | `agbabi`                   |
+[agbabi]              | 2.1.7              | `agbabi`                   |
 [butano] [^1] [^2]    | 17.3.0             | `butano`                   |
 [gba-hpp]             | r180.e313a94       | `gba-hpp`                  |
 [gba-link-connection] | 6.2.3              | `gba-link-connection`      |
