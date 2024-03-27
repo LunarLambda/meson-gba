@@ -1,26 +1,24 @@
 # meson-gba - Modern GBA Development with Meson
 
-This project provides [Meson][meson-build] build files for various Game Boy
-Advance libraries and tools.
+This project provides [Meson] build files for various Game Boy Advance libraries and tools.
 
 ## Development Notice
 
-This project is still fairly experimental. Things are still messy, but are
-continuously being updated and improved. Things might break unexpectedly,
-and things are developed with the latest versions of meson and GCC/devkitARM
-in mind, so make sure your tools are as up-to-date as can be.
+This project is still fairly experimental. Things are still messy, but are continuously being
+updated and improved. Things might break unexpectedly, and things are developed with the latest
+versions of Meson and GCC/devkitARM in mind, so make sure your tools are as up-to-date as can be.
 
 [Projects made with meson-gba](./PROJECTS.md)
 
 ## What's Included
 
-Libraries and tools can be accessed in meson using the [`dependency`][meson-dependency] and
-[`find_program`][meson-find_program] functions.
+Libraries and tools can be accessed using the
+[`dependency`][meson-dependency] and [`find_program`][meson-find_program] functions.
 
 Project               | Version            | Dependencies               | Programs
 ----------------------|--------------------|----------------------------|---------
 [agbabi]              | 2.1.5              | `agbabi`                   |
-[butano] [^1]         | 17.3.0             | `butano`                   |
+[butano] [^1] [^2]    | 17.3.0             | `butano`                   |
 [gba-hpp]             | r180.e313a94       | `gba-hpp`                  |
 [gba-link-connection] | 6.2.3              | `gba-link-connection`      |
 [gbfs]                | 2002-02-07         | `gbfs`                     | `gbfs`, `insgbfs`, `lsgbfs`, `ungbfs`
@@ -38,12 +36,15 @@ Project               | Version            | Dependencies               | Progra
 [posprintf]           | sdk-seven fork     | `posprintf`                |
 [superfamiconv]       | 0.9.2.r16.ga5027f3 |                            | `superfamiconv`
 
-[^1]: devkitARM only
+[^1]: Only available with the devkitARM toolchain.
+[^2]: Pulls in code from agbabi, gbt-player, libtonc, libugba, maxmod, posprintf and vgm-player.
+      You may get linking errors if you try to combine those dependencies with butano. Use a
+      [partial dependency][meson-partial_dependency] to access includes and build flags.
 
 ## Installation and Usage
 
-As all the libraries and tools are compiled from source, the only things you
-need to have installed and in your PATH are:
+As all the libraries and tools are compiled from source, the only things you need to have
+installed and in your PATH are:
 
 - meson (at least version 0.60.0, ideally 1.0.0 or later)
 - git
@@ -54,8 +55,8 @@ See the [meson gba book](https://lunarlambda.github.io/meson-gba-book/) for more
 
 ## Using devkitPro
 
-If you want to use devkitPro (for example, if you want to use libfat), use the
-following command to generate a suitable cross file:
+If you want to use devkitPro (for example, if you want to use libfat), use the following command
+to generate a suitable cross file:
 
 Windows, using Powershell (not recommended):
 
@@ -95,10 +96,9 @@ Check out the `examples` branch for some example projects.
 
 ## Compiler Support
 
-This toolchain works both with devkitARM, and "standard" arm-none-eabi-gcc
-distributions. When reporting problems, please specify which compiler you're
-using, and what version (output of `arm-none-eabi-gcc --version`), as well
-as the output of `meson setup`.
+This toolchain works both with devkitARM, and "standard" arm-none-eabi-gcc distributions. When
+reporting problems, please specify which compiler you're using, and what version (output of
+`arm-none-eabi-gcc --version`), as well as the output of `meson setup`.
 
 If you wish to detect the devkitARM compiler specifically:
 
@@ -114,15 +114,14 @@ See the [Meson compiler API][meson-compiler] for other things you can test for.
 
 ## License
 
-meson-gba is licensed under the zlib license.\
-See [LICENSE.txt](./LICENSE.txt) for more information.
+meson-gba is licensed under the zlib license. See [LICENSE.txt](./LICENSE.txt) for more information.
 
 See the homepages of the bundled projects for their respective licensing.
 
+<!-- Subproject links -->
+
 [agbabi]: https://github.com/felixjones/agbabi
 [butano]: https://github.com/GValiente/butano
-[devkitARM]: https://github.com/devkitPro/devkitarm-crtls
-[download]: https://github.com/LunarLambda/meson-gba/archive/refs/heads/main.zip
 [gba-hpp]: https://github.com/felixjones/gba-hpp
 [gba-link-connection]: https://github.com/rodri042/gba-link-connection
 [gbfs]: https://pineight.com/gba/#gbfs
@@ -135,14 +134,16 @@ See the homepages of the bundled projects for their respective licensing.
 [libugba/libsysgba]: https://github.com/AntonioND/libugba
 [libutil]: https://github.com/sdk-seven/libutil
 [maxmod]: https://github.com/devkitPro/maxmod
-[meson-build]: https://mesonbuild.com/index.html
+[minrt]: https://github.com/sdk-seven/runtime
+[mmutil]: https://github.com/devkitPro/mmutil
+[posprintf]: https://github.com/sdk-seven/posprintf
+[superfamiconv]: https://github.com/Optiroc/SuperFamiconv
+
+<!-- Meson links -->
+
+[Meson]: https://mesonbuild.com/index.html
 [meson-compiler]: https://mesonbuild.com/Reference-manual_returned_compiler.html
 [meson-dependency]: https://mesonbuild.com/Reference-manual_functions.html#dependency
 [meson-find_program]: https://mesonbuild.com/Reference-manual_functions.html#find_program
 [meson-options]: https://mesonbuild.com/Build-options.html#using-build-options
-[minrt]: https://github.com/sdk-seven/runtime
-[mmutil]: https://github.com/devkitPro/mmutil
-[msys2-dkp]: https://devkitpro.org/wiki/Getting_Started#Windows
-[msys2-official]: https://www.msys2.org
-[posprintf]: https://github.com/sdk-seven/posprintf
-[superfamiconv]: https://github.com/Optiroc/SuperFamiconv
+[meson-partial_dependency]: https://mesonbuild.com/Reference-manual_returned_dep.html#deppartial_dependency
