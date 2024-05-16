@@ -26,6 +26,7 @@ Project               | Version            | Dependencies               | Progra
 [grit]                | 0.9.2              |                            | `grit`
 [libfat] [^1]         | 1.1.5.r2.g69543f0  | `libfat`                   |
 [libgba]              | r136.0d46fc9       | `libgba`                   |
+[libsavgba]           | 3.3.2              | `libtonc`                  |
 [libseven]            | 0.22.3             | `libseven`                 |
 [libtonc]             | r15.cc862ce        | `libtonc`                  |
 [libugba/libsysgba]   | 0.3.0              | `libugba`, `libsysgba`     |
@@ -129,6 +130,7 @@ See the homepages of the bundled projects for their respective licensing.
 [grit]: https://github.com/devkitPro/grit
 [libfat]: https://github.com/devkitPro/libfat
 [libgba]: https://github.com/gbadev-org/libgba
+[libsavgba]: https://github.com/aronson/libsavgba
 [libseven]: https://github.com/sdk-seven/libseven
 [libtonc]: https://github.com/gbadev-org/libtonc
 [libugba/libsysgba]: https://github.com/AntonioND/libugba
