@@ -1,0 +1,6 @@
+[wrap-git]
+url = https://github.com/aronson/libsavgba
+revision = v3.3.2
+
+[provide]
+dependency_names = libsavgba
