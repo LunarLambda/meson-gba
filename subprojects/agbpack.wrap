@@ -1,0 +1,8 @@
+[wrap-git]
+url = https://github.com/WonderfulToolchain/agbpack.git
+revision = main
+clone-recursive = true
+diff_files = agbpack/native_tool.patch
+
+[provide]
+program_names = agbpack
